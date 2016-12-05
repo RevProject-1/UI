@@ -182,6 +182,13 @@ namespace ClientManagement.UI.MVC.Controllers
             return View(model);
         }
 
+
+        public ActionResult UpdateUser()
+        {
+            return View();
+        }
+
+
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
