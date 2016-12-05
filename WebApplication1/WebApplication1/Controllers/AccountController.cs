@@ -8,9 +8,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using ClientManagement.UI.MVC.Models;
+using WebApplication1.Models;
 
-namespace ClientManagement.UI.MVC.Controllers
+namespace WebApplication1.Controllers
 {
     [Authorize]
     public class AccountController : Controller
@@ -151,17 +151,7 @@ namespace ClientManagement.UI.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser {
-                    UserName = model.Email,
-                    Email = model.Email,
-                    Name = model.Name,
-                    PhoneNumber = model.PhoneNumber,
-                    StreetAddress = model.StreetAddress,
-                    City = model.City,
-                    State = model.State,
-                    Zip = model.Zip
-                };
-
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

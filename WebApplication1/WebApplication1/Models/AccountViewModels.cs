@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace ClientManagement.UI.MVC.Models
+namespace WebApplication1.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
@@ -64,7 +64,6 @@ namespace ClientManagement.UI.MVC.Models
 
     public class RegisterViewModel
     {
-
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -80,32 +79,6 @@ namespace ClientManagement.UI.MVC.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-
-        //Custom user fields
-        [Required]
-        [Display(Name = "Business Name")]
-        public string Name { get; set; }
-
-        [Required]
-        [Phone]
-        [Display(Name = "Phone Number")]
-        public string PhoneNumber { get; set; }
-
-        [Required]
-        [Display(Name = "Street")]
-        public string StreetAddress { get; set; }
-
-        [Required]
-        [Display(Name = "City")]
-        public string City { get; set; }
-
-        [Required]
-        [Display(Name = "State")]
-        public string State { get; set; }
-
-        [Required]
-        [Display(Name = "Zip Code")]
-        public string Zip { get; set; }
     }
 
     public class ResetPasswordViewModel
@@ -127,7 +100,6 @@ namespace ClientManagement.UI.MVC.Models
         public string ConfirmPassword { get; set; }
 
         public string Code { get; set; }
-
     }
 
     public class ForgotPasswordViewModel
