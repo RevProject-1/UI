@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ClientManagement.UI.MVC.Models;
+using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,9 +17,15 @@ namespace ClientManagement.UI.MVC.Controllers
             return View();
         }
 
-        public ActionResult AddClient()
+        public ActionResult AddClient(ClientViewModel model)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+
+                string UserId = User.Identity.GetUserId();
+            }
+     
+            return View(model);
         }
     }
 }

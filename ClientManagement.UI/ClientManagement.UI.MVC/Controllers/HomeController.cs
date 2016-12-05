@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,7 @@ namespace ClientManagement.UI.MVC.Controllers
         public ActionResult Index()
         {
             return View();
+            var userID = User.Identity.GetUserId();
         }
 
     }
