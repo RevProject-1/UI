@@ -1,0 +1,1691 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" />
+      <xs:element name="getAspNetUsers">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAspNetUsersResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getAspNetUsersResult" nillable="true" type="q1:ArrayOfAspNetUsers" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAspNetUsersByName">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAspNetUsersByNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getAspNetUsersByNameResult" nillable="true" type="q2:ArrayOfAspNetUsers" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getClients">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getClientsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getClientsResult" nillable="true" type="q3:ArrayOfClientDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getClientsByName">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getClientsByNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getClientsByNameResult" nillable="true" type="q4:ArrayOfClientDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getClientsByPhoneNumber">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="phoneNumber" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getClientsByPhoneNumberResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getClientsByPhoneNumberResult" nillable="true" type="q5:ArrayOfClientDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getClientsByEmail">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getClientsByEmailResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getClientsByEmailResult" nillable="true" type="q6:ArrayOfClientDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getClientsByAddressId">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="AddressId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getClientsByAddressIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getClientsByAddressIdResult" nillable="true" type="q7:ArrayOfClientDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAspNetRoles">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAspNetRolesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getAspNetRolesResult" nillable="true" type="q8:ArrayOfAspNetRoles" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAspNetRolesByName">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAspNetRolesByNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getAspNetRolesByNameResult" nillable="true" type="q9:ArrayOfAspNetRoles" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAspNetRolesById">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Id" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAspNetRolesByIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getAspNetRolesByIdResult" nillable="true" type="q10:ArrayOfAspNetRoles" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAspNetUserClaims">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAspNetUserClaimsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getAspNetUserClaimsResult" nillable="true" type="q11:ArrayOfAspNetUserClaims" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAspNetUserClaimsById">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Id" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAspNetUserClaimsByIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getAspNetUserClaimsByIdResult" nillable="true" type="q12:ArrayOfAspNetUserClaims" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAspNetUserClaimsByUserIdandClaimtypeandClaimValue">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="claimType" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="claimValue" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAspNetUserClaimsByUserIdandClaimtypeandClaimValueResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getAspNetUserClaimsByUserIdandClaimtypeandClaimValueResult" nillable="true" type="q13:ArrayOfAspNetUserClaims" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAspNetUserLogins">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAspNetUserLoginsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getAspNetUserLoginsResult" nillable="true" type="q14:ArrayOfAspNetUserLogins" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAspNetUserLogin">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="loginProvider" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="providerKey" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAspNetUserLoginResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getAspNetUserLoginResult" nillable="true" type="q15:ArrayOfAspNetUserLogins" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAspNetUserRoles">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAspNetUserRolesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getAspNetUserRolesResult" nillable="true" type="q16:ArrayOfAspNetUserRoles" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAspNetUserRole">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="roleId" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAspNetUserRoleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getAspNetUserRoleResult" nillable="true" type="q17:ArrayOfAspNetUserRoles" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAddressDTOs">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAddressDTOsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getAddressDTOsResult" nillable="true" type="q18:ArrayOfAddressDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAddressDTO">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="street" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="state" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="zip" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAddressDTOResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getAddressDTOResult" nillable="true" type="q19:ArrayOfAddressDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAddressDTOByStreet">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="street" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAddressDTOByStreetResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getAddressDTOByStreetResult" nillable="true" type="q20:ArrayOfAddressDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAddressDTOByStreetandCity">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="street" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAddressDTOByStreetandCityResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getAddressDTOByStreetandCityResult" nillable="true" type="q21:ArrayOfAddressDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAddressDTOByStreetandCityandState">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="street" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="state" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAddressDTOByStreetandCityandStateResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getAddressDTOByStreetandCityandStateResult" nillable="true" type="q22:ArrayOfAddressDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAddressDTOsByZip">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="zip" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAddressDTOsByZipResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getAddressDTOsByZipResult" nillable="true" type="q23:ArrayOfAddressDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAddressDTOsByState">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="state" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAddressDTOsByStateResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getAddressDTOsByStateResult" nillable="true" type="q24:ArrayOfAddressDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAddressDTOsByCity">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAddressDTOsByCityResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getAddressDTOsByCityResult" nillable="true" type="q25:ArrayOfAddressDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertAspNetUsers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="user" nillable="true" type="q26:AspNetUsers" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertAspNetUsersResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="insertAspNetUsersResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertClients">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="client" nillable="true" type="q27:ClientDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertClientsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="insertClientsResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertAspNetRoles">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="role" nillable="true" type="q28:AspNetRoles" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertAspNetRolesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="insertAspNetRolesResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertAspNetUserClaims">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="claim" nillable="true" type="q29:AspNetUserClaims" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertAspNetUserClaimsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="insertAspNetUserClaimsResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertAspNetUserLogins">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="login" nillable="true" type="q30:AspNetUserLogins" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertAspNetUserLoginsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="insertAspNetUserLoginsResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertAspNetUserRoles">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="userRole" nillable="true" type="q31:AspNetUserRoles" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertAspNetUserRolesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="insertAspNetUserRolesResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertAddressDTOs">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="address" nillable="true" type="q32:AddressDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertAddressDTOsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="insertAddressDTOsResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteAddress">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="address" nillable="true" type="q33:AddressDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteAddressResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="deleteAddressResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteAspNetRole">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="role" nillable="true" type="q34:AspNetUserRoles" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteAspNetRoleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="deleteAspNetRoleResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteAspNetUserClaim">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="claim" nillable="true" type="q35:AspNetUserClaims" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteAspNetUserClaimResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="deleteAspNetUserClaimResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteAspNetUserLogin">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="login" nillable="true" type="q36:AspNetUserLogins" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteAspNetUserLoginResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="deleteAspNetUserLoginResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteAspNetUserRoles">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="userRole" nillable="true" type="q37:AspNetUserRoles" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteAspNetUserRolesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="deleteAspNetUserRolesResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteAspNetUsers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="user" nillable="true" type="q38:AspNetUsers" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteAspNetUsersResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="deleteAspNetUsersResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteClient">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="client" nillable="true" type="q39:ClientDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteClientResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="deleteClientResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateAddress">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="address" nillable="true" type="q40:AddressDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateAddressResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="updateAddressResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateAspNetRole">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="role" nillable="true" type="q41:AspNetUserRoles" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateAspNetRoleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="updateAspNetRoleResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateAspNetUserClaim">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="claim" nillable="true" type="q42:AspNetUserClaims" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateAspNetUserClaimResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="updateAspNetUserClaimResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateAspNetUserLogin">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="login" nillable="true" type="q43:AspNetUserLogins" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateAspNetUserLoginResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="updateAspNetUserLoginResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateAspNetUserRoles">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="userRole" nillable="true" type="q44:AspNetUserRoles" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateAspNetUserRolesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="updateAspNetUserRolesResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateAspNetUsers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="user" nillable="true" type="q45:AspNetUsers" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateAspNetUsersResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="updateAspNetUsersResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateClient">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="client" nillable="true" type="q46:ClientDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateClientResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="updateClientResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfAspNetUsers">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AspNetUsers" nillable="true" type="tns:AspNetUsers" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfAspNetUsers" nillable="true" type="tns:ArrayOfAspNetUsers" />
+      <xs:complexType name="AspNetUsers">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccessFailedCount" type="xs:int" />
+          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmailConfirmed" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LockoutEnabled" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LockoutEndDateUtc" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PasswordHash" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PhoneNumberConfirmed" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SecurityStamp" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StreetAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TwoFactorEnabled" type="xs:boolean" />
+          <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Zip" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="AspNetUsers" nillable="true" type="tns:AspNetUsers" />
+      <xs:complexType name="ArrayOfClientDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ClientDTO" nillable="true" type="tns:ClientDTO" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfClientDTO" nillable="true" type="tns:ArrayOfClientDTO" />
+      <xs:complexType name="ClientDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="tns:AddressDTO" />
+          <xs:element minOccurs="0" name="AddressID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ClientDTO" nillable="true" type="tns:ClientDTO" />
+      <xs:complexType name="AddressDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Zip" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="AddressDTO" nillable="true" type="tns:AddressDTO" />
+      <xs:complexType name="ArrayOfAspNetRoles">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AspNetRoles" nillable="true" type="tns:AspNetRoles" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfAspNetRoles" nillable="true" type="tns:ArrayOfAspNetRoles" />
+      <xs:complexType name="AspNetRoles">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="AspNetRoles" nillable="true" type="tns:AspNetRoles" />
+      <xs:complexType name="ArrayOfAspNetUserClaims">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AspNetUserClaims" nillable="true" type="tns:AspNetUserClaims" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfAspNetUserClaims" nillable="true" type="tns:ArrayOfAspNetUserClaims" />
+      <xs:complexType name="AspNetUserClaims">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ClaimType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClaimValue" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="AspNetUserClaims" nillable="true" type="tns:AspNetUserClaims" />
+      <xs:complexType name="ArrayOfAspNetUserLogins">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AspNetUserLogins" nillable="true" type="tns:AspNetUserLogins" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfAspNetUserLogins" nillable="true" type="tns:ArrayOfAspNetUserLogins" />
+      <xs:complexType name="AspNetUserLogins">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LoginProvider" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProviderKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="AspNetUserLogins" nillable="true" type="tns:AspNetUserLogins" />
+      <xs:complexType name="ArrayOfAspNetUserRoles">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AspNetUserRoles" nillable="true" type="tns:AspNetUserRoles" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfAspNetUserRoles" nillable="true" type="tns:ArrayOfAspNetUserRoles" />
+      <xs:complexType name="AspNetUserRoles">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RoleId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="AspNetUserRoles" nillable="true" type="tns:AspNetUserRoles" />
+      <xs:complexType name="ArrayOfAddressDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AddressDTO" nillable="true" type="tns:AddressDTO" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfAddressDTO" nillable="true" type="tns:ArrayOfAddressDTO" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IService_getAspNetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAspNetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAspNetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAspNetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAspNetUsersByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAspNetUsersByName" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAspNetUsersByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAspNetUsersByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getClients_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClients" />
+  </wsdl:message>
+  <wsdl:message name="IService_getClients_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getClientsByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClientsByName" />
+  </wsdl:message>
+  <wsdl:message name="IService_getClientsByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientsByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getClientsByPhoneNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClientsByPhoneNumber" />
+  </wsdl:message>
+  <wsdl:message name="IService_getClientsByPhoneNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientsByPhoneNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getClientsByEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClientsByEmail" />
+  </wsdl:message>
+  <wsdl:message name="IService_getClientsByEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientsByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getClientsByAddressId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClientsByAddressId" />
+  </wsdl:message>
+  <wsdl:message name="IService_getClientsByAddressId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientsByAddressIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAspNetRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAspNetRoles" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAspNetRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAspNetRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAspNetRolesByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAspNetRolesByName" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAspNetRolesByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAspNetRolesByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAspNetRolesById_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAspNetRolesById" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAspNetRolesById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAspNetRolesByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAspNetUserClaims_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAspNetUserClaims" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAspNetUserClaims_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAspNetUserClaimsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAspNetUserClaimsById_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAspNetUserClaimsById" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAspNetUserClaimsById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAspNetUserClaimsByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAspNetUserClaimsByUserIdandClaimtypeandClaimValue_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAspNetUserClaimsByUserIdandClaimtypeandClaimValue" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAspNetUserClaimsByUserIdandClaimtypeandClaimValue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAspNetUserClaimsByUserIdandClaimtypeandClaimValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAspNetUserLogins_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAspNetUserLogins" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAspNetUserLogins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAspNetUserLoginsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAspNetUserLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAspNetUserLogin" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAspNetUserLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAspNetUserLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAspNetUserRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAspNetUserRoles" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAspNetUserRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAspNetUserRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAspNetUserRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAspNetUserRole" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAspNetUserRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAspNetUserRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAddressDTOs_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAddressDTOs" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAddressDTOs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAddressDTOsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAddressDTO_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAddressDTO" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAddressDTO_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAddressDTOResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAddressDTOByStreet_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAddressDTOByStreet" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAddressDTOByStreet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAddressDTOByStreetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAddressDTOByStreetandCity_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAddressDTOByStreetandCity" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAddressDTOByStreetandCity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAddressDTOByStreetandCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAddressDTOByStreetandCityandState_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAddressDTOByStreetandCityandState" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAddressDTOByStreetandCityandState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAddressDTOByStreetandCityandStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAddressDTOsByZip_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAddressDTOsByZip" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAddressDTOsByZip_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAddressDTOsByZipResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAddressDTOsByState_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAddressDTOsByState" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAddressDTOsByState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAddressDTOsByStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAddressDTOsByCity_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAddressDTOsByCity" />
+  </wsdl:message>
+  <wsdl:message name="IService_getAddressDTOsByCity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAddressDTOsByCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_insertAspNetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertAspNetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IService_insertAspNetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertAspNetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_insertClients_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertClients" />
+  </wsdl:message>
+  <wsdl:message name="IService_insertClients_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertClientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_insertAspNetRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertAspNetRoles" />
+  </wsdl:message>
+  <wsdl:message name="IService_insertAspNetRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertAspNetRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_insertAspNetUserClaims_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertAspNetUserClaims" />
+  </wsdl:message>
+  <wsdl:message name="IService_insertAspNetUserClaims_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertAspNetUserClaimsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_insertAspNetUserLogins_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertAspNetUserLogins" />
+  </wsdl:message>
+  <wsdl:message name="IService_insertAspNetUserLogins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertAspNetUserLoginsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_insertAspNetUserRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertAspNetUserRoles" />
+  </wsdl:message>
+  <wsdl:message name="IService_insertAspNetUserRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertAspNetUserRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_insertAddressDTOs_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertAddressDTOs" />
+  </wsdl:message>
+  <wsdl:message name="IService_insertAddressDTOs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertAddressDTOsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_deleteAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteAddress" />
+  </wsdl:message>
+  <wsdl:message name="IService_deleteAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_deleteAspNetRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteAspNetRole" />
+  </wsdl:message>
+  <wsdl:message name="IService_deleteAspNetRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteAspNetRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_deleteAspNetUserClaim_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteAspNetUserClaim" />
+  </wsdl:message>
+  <wsdl:message name="IService_deleteAspNetUserClaim_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteAspNetUserClaimResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_deleteAspNetUserLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteAspNetUserLogin" />
+  </wsdl:message>
+  <wsdl:message name="IService_deleteAspNetUserLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteAspNetUserLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_deleteAspNetUserRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteAspNetUserRoles" />
+  </wsdl:message>
+  <wsdl:message name="IService_deleteAspNetUserRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteAspNetUserRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_deleteAspNetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteAspNetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IService_deleteAspNetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteAspNetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_deleteClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClient" />
+  </wsdl:message>
+  <wsdl:message name="IService_deleteClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_updateAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateAddress" />
+  </wsdl:message>
+  <wsdl:message name="IService_updateAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_updateAspNetRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateAspNetRole" />
+  </wsdl:message>
+  <wsdl:message name="IService_updateAspNetRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateAspNetRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_updateAspNetUserClaim_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateAspNetUserClaim" />
+  </wsdl:message>
+  <wsdl:message name="IService_updateAspNetUserClaim_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateAspNetUserClaimResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_updateAspNetUserLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateAspNetUserLogin" />
+  </wsdl:message>
+  <wsdl:message name="IService_updateAspNetUserLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateAspNetUserLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_updateAspNetUserRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateAspNetUserRoles" />
+  </wsdl:message>
+  <wsdl:message name="IService_updateAspNetUserRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateAspNetUserRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_updateAspNetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateAspNetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IService_updateAspNetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateAspNetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_updateClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateClient" />
+  </wsdl:message>
+  <wsdl:message name="IService_updateClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateClientResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService">
+    <wsdl:operation name="getAspNetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getAspNetUsers" message="tns:IService_getAspNetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getAspNetUsersResponse" message="tns:IService_getAspNetUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAspNetUsersByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getAspNetUsersByName" message="tns:IService_getAspNetUsersByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getAspNetUsersByNameResponse" message="tns:IService_getAspNetUsersByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClients">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getClients" message="tns:IService_getClients_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getClientsResponse" message="tns:IService_getClients_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientsByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getClientsByName" message="tns:IService_getClientsByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getClientsByNameResponse" message="tns:IService_getClientsByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientsByPhoneNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getClientsByPhoneNumber" message="tns:IService_getClientsByPhoneNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getClientsByPhoneNumberResponse" message="tns:IService_getClientsByPhoneNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientsByEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getClientsByEmail" message="tns:IService_getClientsByEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getClientsByEmailResponse" message="tns:IService_getClientsByEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientsByAddressId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getClientsByAddressId" message="tns:IService_getClientsByAddressId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getClientsByAddressIdResponse" message="tns:IService_getClientsByAddressId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAspNetRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getAspNetRoles" message="tns:IService_getAspNetRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getAspNetRolesResponse" message="tns:IService_getAspNetRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAspNetRolesByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getAspNetRolesByName" message="tns:IService_getAspNetRolesByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getAspNetRolesByNameResponse" message="tns:IService_getAspNetRolesByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAspNetRolesById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getAspNetRolesById" message="tns:IService_getAspNetRolesById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getAspNetRolesByIdResponse" message="tns:IService_getAspNetRolesById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAspNetUserClaims">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getAspNetUserClaims" message="tns:IService_getAspNetUserClaims_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getAspNetUserClaimsResponse" message="tns:IService_getAspNetUserClaims_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAspNetUserClaimsById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getAspNetUserClaimsById" message="tns:IService_getAspNetUserClaimsById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getAspNetUserClaimsByIdResponse" message="tns:IService_getAspNetUserClaimsById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAspNetUserClaimsByUserIdandClaimtypeandClaimValue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getAspNetUserClaimsByUserIdandClaimtypeandClaimValue" message="tns:IService_getAspNetUserClaimsByUserIdandClaimtypeandClaimValue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getAspNetUserClaimsByUserIdandClaimtypeandClaimValueResponse" message="tns:IService_getAspNetUserClaimsByUserIdandClaimtypeandClaimValue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAspNetUserLogins">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getAspNetUserLogins" message="tns:IService_getAspNetUserLogins_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getAspNetUserLoginsResponse" message="tns:IService_getAspNetUserLogins_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAspNetUserLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getAspNetUserLogin" message="tns:IService_getAspNetUserLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getAspNetUserLoginResponse" message="tns:IService_getAspNetUserLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAspNetUserRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getAspNetUserRoles" message="tns:IService_getAspNetUserRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getAspNetUserRolesResponse" message="tns:IService_getAspNetUserRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAspNetUserRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getAspNetUserRole" message="tns:IService_getAspNetUserRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getAspNetUserRoleResponse" message="tns:IService_getAspNetUserRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAddressDTOs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getAddressDTOs" message="tns:IService_getAddressDTOs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getAddressDTOsResponse" message="tns:IService_getAddressDTOs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAddressDTO">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getAddressDTO" message="tns:IService_getAddressDTO_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getAddressDTOResponse" message="tns:IService_getAddressDTO_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAddressDTOByStreet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getAddressDTOByStreet" message="tns:IService_getAddressDTOByStreet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getAddressDTOByStreetResponse" message="tns:IService_getAddressDTOByStreet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAddressDTOByStreetandCity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getAddressDTOByStreetandCity" message="tns:IService_getAddressDTOByStreetandCity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getAddressDTOByStreetandCityResponse" message="tns:IService_getAddressDTOByStreetandCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAddressDTOByStreetandCityandState">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getAddressDTOByStreetandCityandState" message="tns:IService_getAddressDTOByStreetandCityandState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getAddressDTOByStreetandCityandStateResponse" message="tns:IService_getAddressDTOByStreetandCityandState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAddressDTOsByZip">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getAddressDTOsByZip" message="tns:IService_getAddressDTOsByZip_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getAddressDTOsByZipResponse" message="tns:IService_getAddressDTOsByZip_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAddressDTOsByState">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getAddressDTOsByState" message="tns:IService_getAddressDTOsByState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getAddressDTOsByStateResponse" message="tns:IService_getAddressDTOsByState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAddressDTOsByCity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getAddressDTOsByCity" message="tns:IService_getAddressDTOsByCity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getAddressDTOsByCityResponse" message="tns:IService_getAddressDTOsByCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertAspNetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/insertAspNetUsers" message="tns:IService_insertAspNetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/insertAspNetUsersResponse" message="tns:IService_insertAspNetUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertClients">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/insertClients" message="tns:IService_insertClients_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/insertClientsResponse" message="tns:IService_insertClients_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertAspNetRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/insertAspNetRoles" message="tns:IService_insertAspNetRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/insertAspNetRolesResponse" message="tns:IService_insertAspNetRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertAspNetUserClaims">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/insertAspNetUserClaims" message="tns:IService_insertAspNetUserClaims_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/insertAspNetUserClaimsResponse" message="tns:IService_insertAspNetUserClaims_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertAspNetUserLogins">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/insertAspNetUserLogins" message="tns:IService_insertAspNetUserLogins_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/insertAspNetUserLoginsResponse" message="tns:IService_insertAspNetUserLogins_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertAspNetUserRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/insertAspNetUserRoles" message="tns:IService_insertAspNetUserRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/insertAspNetUserRolesResponse" message="tns:IService_insertAspNetUserRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertAddressDTOs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/insertAddressDTOs" message="tns:IService_insertAddressDTOs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/insertAddressDTOsResponse" message="tns:IService_insertAddressDTOs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/deleteAddress" message="tns:IService_deleteAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/deleteAddressResponse" message="tns:IService_deleteAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteAspNetRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/deleteAspNetRole" message="tns:IService_deleteAspNetRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/deleteAspNetRoleResponse" message="tns:IService_deleteAspNetRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteAspNetUserClaim">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/deleteAspNetUserClaim" message="tns:IService_deleteAspNetUserClaim_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/deleteAspNetUserClaimResponse" message="tns:IService_deleteAspNetUserClaim_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteAspNetUserLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/deleteAspNetUserLogin" message="tns:IService_deleteAspNetUserLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/deleteAspNetUserLoginResponse" message="tns:IService_deleteAspNetUserLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteAspNetUserRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/deleteAspNetUserRoles" message="tns:IService_deleteAspNetUserRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/deleteAspNetUserRolesResponse" message="tns:IService_deleteAspNetUserRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteAspNetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/deleteAspNetUsers" message="tns:IService_deleteAspNetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/deleteAspNetUsersResponse" message="tns:IService_deleteAspNetUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/deleteClient" message="tns:IService_deleteClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/deleteClientResponse" message="tns:IService_deleteClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/updateAddress" message="tns:IService_updateAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/updateAddressResponse" message="tns:IService_updateAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateAspNetRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/updateAspNetRole" message="tns:IService_updateAspNetRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/updateAspNetRoleResponse" message="tns:IService_updateAspNetRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateAspNetUserClaim">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/updateAspNetUserClaim" message="tns:IService_updateAspNetUserClaim_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/updateAspNetUserClaimResponse" message="tns:IService_updateAspNetUserClaim_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateAspNetUserLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/updateAspNetUserLogin" message="tns:IService_updateAspNetUserLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/updateAspNetUserLoginResponse" message="tns:IService_updateAspNetUserLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateAspNetUserRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/updateAspNetUserRoles" message="tns:IService_updateAspNetUserRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/updateAspNetUserRolesResponse" message="tns:IService_updateAspNetUserRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateAspNetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/updateAspNetUsers" message="tns:IService_updateAspNetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/updateAspNetUsersResponse" message="tns:IService_updateAspNetUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/updateClient" message="tns:IService_updateClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/updateClientResponse" message="tns:IService_updateClient_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getAspNetUsers">
+      <soap:operation soapAction="http://tempuri.org/IService/getAspNetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAspNetUsersByName">
+      <soap:operation soapAction="http://tempuri.org/IService/getAspNetUsersByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClients">
+      <soap:operation soapAction="http://tempuri.org/IService/getClients" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientsByName">
+      <soap:operation soapAction="http://tempuri.org/IService/getClientsByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientsByPhoneNumber">
+      <soap:operation soapAction="http://tempuri.org/IService/getClientsByPhoneNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientsByEmail">
+      <soap:operation soapAction="http://tempuri.org/IService/getClientsByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientsByAddressId">
+      <soap:operation soapAction="http://tempuri.org/IService/getClientsByAddressId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAspNetRoles">
+      <soap:operation soapAction="http://tempuri.org/IService/getAspNetRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAspNetRolesByName">
+      <soap:operation soapAction="http://tempuri.org/IService/getAspNetRolesByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAspNetRolesById">
+      <soap:operation soapAction="http://tempuri.org/IService/getAspNetRolesById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAspNetUserClaims">
+      <soap:operation soapAction="http://tempuri.org/IService/getAspNetUserClaims" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAspNetUserClaimsById">
+      <soap:operation soapAction="http://tempuri.org/IService/getAspNetUserClaimsById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAspNetUserClaimsByUserIdandClaimtypeandClaimValue">
+      <soap:operation soapAction="http://tempuri.org/IService/getAspNetUserClaimsByUserIdandClaimtypeandClaimValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAspNetUserLogins">
+      <soap:operation soapAction="http://tempuri.org/IService/getAspNetUserLogins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAspNetUserLogin">
+      <soap:operation soapAction="http://tempuri.org/IService/getAspNetUserLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAspNetUserRoles">
+      <soap:operation soapAction="http://tempuri.org/IService/getAspNetUserRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAspNetUserRole">
+      <soap:operation soapAction="http://tempuri.org/IService/getAspNetUserRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAddressDTOs">
+      <soap:operation soapAction="http://tempuri.org/IService/getAddressDTOs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAddressDTO">
+      <soap:operation soapAction="http://tempuri.org/IService/getAddressDTO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAddressDTOByStreet">
+      <soap:operation soapAction="http://tempuri.org/IService/getAddressDTOByStreet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAddressDTOByStreetandCity">
+      <soap:operation soapAction="http://tempuri.org/IService/getAddressDTOByStreetandCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAddressDTOByStreetandCityandState">
+      <soap:operation soapAction="http://tempuri.org/IService/getAddressDTOByStreetandCityandState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAddressDTOsByZip">
+      <soap:operation soapAction="http://tempuri.org/IService/getAddressDTOsByZip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAddressDTOsByState">
+      <soap:operation soapAction="http://tempuri.org/IService/getAddressDTOsByState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAddressDTOsByCity">
+      <soap:operation soapAction="http://tempuri.org/IService/getAddressDTOsByCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertAspNetUsers">
+      <soap:operation soapAction="http://tempuri.org/IService/insertAspNetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertClients">
+      <soap:operation soapAction="http://tempuri.org/IService/insertClients" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertAspNetRoles">
+      <soap:operation soapAction="http://tempuri.org/IService/insertAspNetRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertAspNetUserClaims">
+      <soap:operation soapAction="http://tempuri.org/IService/insertAspNetUserClaims" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertAspNetUserLogins">
+      <soap:operation soapAction="http://tempuri.org/IService/insertAspNetUserLogins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertAspNetUserRoles">
+      <soap:operation soapAction="http://tempuri.org/IService/insertAspNetUserRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertAddressDTOs">
+      <soap:operation soapAction="http://tempuri.org/IService/insertAddressDTOs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAddress">
+      <soap:operation soapAction="http://tempuri.org/IService/deleteAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAspNetRole">
+      <soap:operation soapAction="http://tempuri.org/IService/deleteAspNetRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAspNetUserClaim">
+      <soap:operation soapAction="http://tempuri.org/IService/deleteAspNetUserClaim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAspNetUserLogin">
+      <soap:operation soapAction="http://tempuri.org/IService/deleteAspNetUserLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAspNetUserRoles">
+      <soap:operation soapAction="http://tempuri.org/IService/deleteAspNetUserRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAspNetUsers">
+      <soap:operation soapAction="http://tempuri.org/IService/deleteAspNetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteClient">
+      <soap:operation soapAction="http://tempuri.org/IService/deleteClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAddress">
+      <soap:operation soapAction="http://tempuri.org/IService/updateAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAspNetRole">
+      <soap:operation soapAction="http://tempuri.org/IService/updateAspNetRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAspNetUserClaim">
+      <soap:operation soapAction="http://tempuri.org/IService/updateAspNetUserClaim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAspNetUserLogin">
+      <soap:operation soapAction="http://tempuri.org/IService/updateAspNetUserLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAspNetUserRoles">
+      <soap:operation soapAction="http://tempuri.org/IService/updateAspNetUserRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAspNetUsers">
+      <soap:operation soapAction="http://tempuri.org/IService/updateAspNetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateClient">
+      <soap:operation soapAction="http://tempuri.org/IService/updateClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService" binding="tns:BasicHttpBinding_IService">
+      <soap:address location="http://34.193.92.187/ClientManagement.Backend.Client/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

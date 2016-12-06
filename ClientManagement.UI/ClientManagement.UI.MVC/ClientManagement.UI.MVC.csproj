@@ -58,6 +58,7 @@
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -195,6 +196,11 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\cmLogicService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -206,6 +212,14 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Properties\DataSources\ClientManagement.UI.ServiceAccess.cmLogicService.AddressDTO.datasource" />
+    <Content Include="Properties\DataSources\ClientManagement.UI.ServiceAccess.cmLogicService.AspNetRoles.datasource" />
+    <Content Include="Properties\DataSources\ClientManagement.UI.ServiceAccess.cmLogicService.AspNetUserClaims.datasource" />
+    <Content Include="Properties\DataSources\ClientManagement.UI.ServiceAccess.cmLogicService.AspNetUserLogins.datasource" />
+    <Content Include="Properties\DataSources\ClientManagement.UI.ServiceAccess.cmLogicService.AspNetUserRoles.datasource" />
+    <Content Include="Properties\DataSources\ClientManagement.UI.ServiceAccess.cmLogicService.AspNetUsers.datasource" />
+    <Content Include="Properties\DataSources\ClientManagement.UI.ServiceAccess.cmLogicService.ClientDTO.datasource" />
+    <None Include="Properties\PublishProfiles\Client Manager MVC.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -218,6 +232,12 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <None Include="Service References\cmLogicService\configuration91.svcinfo" />
+    <None Include="Service References\cmLogicService\configuration.svcinfo" />
+    <None Include="Service References\cmLogicService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -254,6 +274,7 @@
     <Content Include="Views\Clients\AddClient.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Clients\Index.cshtml" />
+    <None Include="Service References\cmLogicService\Service1.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -268,6 +289,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClientManagement.UI.ServiceAccess\ClientManagement.UI.ServiceAccess.csproj">
+      <Project>{122568D2-1E6C-427F-8988-C04D1A83D27E}</Project>
+      <Name>ClientManagement.UI.ServiceAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\cmLogicService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

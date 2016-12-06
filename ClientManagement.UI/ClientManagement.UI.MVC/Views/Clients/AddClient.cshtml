@@ -5,63 +5,53 @@
 
 <h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm("AddClient", "Clients", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    <h4>Add a New Client</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
-        </div>
-    </div>
-    <p>Address:</p>
-    <div class="form-group">
-        @Html.LabelFor(m => m.StreetAddress, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.StreetAddress, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.City, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.State, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.State, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Zip, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Zip, new { @class = "form-control" })
-        </div>
-    </div>
+@using (Html.BeginForm("AddClient", "Clients", FormMethod.Post))
+    {
+       <div class="row">
+            <div class="col-sm-3">
+                <p>
+                    Client Name:<br />
+                    @Html.TextBoxFor(m => m.Name, Model.Name, new { @class = "form-control" })
+                </p>
+            
+                <p>
+                    Email:<br />
+                    @Html.TextBoxFor(m => m.Email, Model.Email, new { @class = "form-control" })
+                </p>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Submit" />
-        </div>
-    </div>
-}
+                <p>
+                    Phone Number:<br />
+                    @Html.TextBoxFor(m => m.PhoneNumber, Model.PhoneNumber, new { @class = "form-control" })
+                </p>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+                <p>
+                    Street:<br />
+                    @Html.TextBoxFor(m => m.StreetAddress, Model.StreetAddress, new { @class = "form-control" })
+                </p>
+
+                <p>
+                    City:<br />
+                    @Html.TextBoxFor(m => m.City, Model.City, new { @class = "form-control" })
+                </p>
+
+                <p>
+                    State:<br />
+                    @Html.TextBoxFor(m => m.State, Model.State, new { @class = "form-control" })
+                </p>
+
+                <p>
+                    Zip:<br />
+                    @Html.TextBoxFor(m => m.Zip, Model.Zip, new { @class = "form-control" })
+                </p>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <button type="submit" class="btn-sm">Submit</button>
+            </div>
+        </div>
+    }
+
+           

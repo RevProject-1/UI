@@ -1,4 +1,5 @@
 ﻿using ClientManagement.UI.MVC.Models;
+using ClientManagement.UI.ServiceAccess;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -11,21 +12,48 @@ namespace ClientManagement.UI.MVC.Controllers
     [Authorize]
     public class ClientsController : Controller
     {
-        // GET: Clients
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult AddClient(ClientViewModel model)
+        public ActionResult AddClient()
         {
-            if (ModelState.IsValid)
-            {
+            var model = new ClientViewModel();
 
-                string UserId = User.Identity.GetUserId();
-            }
-     
             return View(model);
         }
+
+        [HttpPost]
+        public ActionResult AddClient(ClientViewModel model)
+        {
+
+            string UserId = User.Identity.GetUserId();
+
+            LogicService cmLogic = new LogicService();
+
+            bool addedSucessfully = cmLogic.AddClient(
+                model.Name,
+                model.Email,
+                model.PhoneNumber,
+                UserId,
+                model.StreetAddress,
+                model.City,
+                model.State,
+                model.Zip);
+
+
+            if (addedSucessfully)
+            {
+                ViewBag.Message = "Client Added Sucessfully";
+                return RedirectToAction("Index", "Dashboard");
+            }
+            else
+            {
+                ViewBag.Message = "Client Not Added Sucessfully";
+                return RedirectToAction("Index", "Dashboard");
+            }
+        }
+
     }
 }
