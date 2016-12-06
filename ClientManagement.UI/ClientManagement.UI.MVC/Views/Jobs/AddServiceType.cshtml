@@ -1,0 +1,31 @@
+﻿@model ClientManagement.UI.MVC.Models.ServiceTypeViewModel
+@{
+    ViewBag.Title = "Add Service Type";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("AddServiceType", "Jobs", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-sm-3">
+            <p>
+                Name of Service:<br />
+                @Html.TextBoxFor(m => m.ServiceName, Model.ServiceName, new { @class = "form-control" })
+            </p>
+
+            <p>
+                Hourly Rate:<br />
+                @Html.TextBoxFor(m => m.HourlyRate, Model.HourlyRate, new { @class = "form-control" })
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <button type="submit" class="btn-sm">Submit</button>
+        </div>
+    </div>
+}
+
+

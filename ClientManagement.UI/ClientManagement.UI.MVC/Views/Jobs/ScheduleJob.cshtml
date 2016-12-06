@@ -1,0 +1,72 @@
+﻿@model ClientManagement.UI.MVC.Models.JobViewModel
+@{
+    ViewBag.Title = "Schedule New Job";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("ScheduleJob", "Jobs", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-sm-3">
+
+            <br />
+            <p>
+                Select Services:<br />
+                @Html.ListBox("ListBoxServiceTypes", Model.JobOptions.ServiceTypeOptions, new { @class = "form-control" })
+            </p>
+
+            <p>
+                Select a Client:<br />
+                @Html.DropDownList("DropDownClientOptions", Model.JobOptions.ClientOptions, new { @class = "form-control" })
+            </p>
+
+            <br/>
+            <p><strong>Start Date:</strong></p>
+            <p>
+                Day:<br />
+                @Html.TextBoxFor(m => m.JobData.Day, Model.JobData.Day, new { @class = "form-control" })
+            </p>
+
+            <p>
+                Month:<br />
+                @Html.TextBoxFor(m => m.JobData.Month, Model.JobData.Month, new { @class = "form-control" })
+            </p>
+
+            <p>
+                Year:<br />
+                @Html.TextBoxFor(m => m.JobData.Year, Model.JobData.Year, new { @class = "form-control" })
+            </p>
+
+            <br />
+            <p><strong>Start Time:</strong></p>
+            <p>
+                Hour:<br />
+                @Html.TextBoxFor(m => m.JobData.Hour, Model.JobData.Hour, new { @class = "form-control" })
+            </p>
+
+            <p>
+                Minute:<br />
+                @Html.TextBoxFor(m => m.JobData.Minute, Model.JobData.Minute, new { @class = "form-control" })
+            </p>
+
+            <br />
+            <p>
+                Estimated Job Duration (Days):<br />
+                @Html.TextBoxFor(m => m.JobData.Duration, Model.JobData.Duration, new { @class = "form-control" })
+            </p>
+
+            <p>
+                Additional Notes:<br />
+                @Html.TextBoxFor(m => m.JobData.Notes, Model.JobData.Notes, new { @class = "form-control" })
+            </p>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <button type="submit" class="btn-sm">Submit</button>
+        </div>
+    </div>
+}

@@ -187,14 +187,20 @@
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ClientViewModel.cs" />
+    <Compile Include="Models\DashboardViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\JobViewModel.cs" />
+    <Compile Include="Models\JobViewModelData.cs" />
+    <Compile Include="Models\JobViewModelOptions.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ServiceTypeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\cmLogicService\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -219,6 +225,8 @@
     <Content Include="Properties\DataSources\ClientManagement.UI.ServiceAccess.cmLogicService.AspNetUserRoles.datasource" />
     <Content Include="Properties\DataSources\ClientManagement.UI.ServiceAccess.cmLogicService.AspNetUsers.datasource" />
     <Content Include="Properties\DataSources\ClientManagement.UI.ServiceAccess.cmLogicService.ClientDTO.datasource" />
+    <Content Include="Properties\DataSources\ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO.datasource" />
+    <Content Include="Properties\DataSources\ClientManagement.UI.ServiceAccess.cmLogicService.ServiceTypeDTO.datasource" />
     <None Include="Properties\PublishProfiles\Client Manager MVC.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -275,6 +283,11 @@
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Clients\Index.cshtml" />
     <None Include="Service References\cmLogicService\Service1.wsdl" />
+    <Content Include="Views\Jobs\Index.cshtml" />
+    <Content Include="Views\Jobs\ScheduleJob.cshtml" />
+    <Content Include="Views\Jobs\AddServiceType.cshtml" />
+    <Content Include="Views\Dashboard\Result.cshtml" />
+    <Content Include="Views\Dashboard\DashboardOptions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -824,6 +824,413 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="jobDTO", Namespace="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models")]
+    [System.SerializableAttribute()]
+    public partial class jobDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ClientIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool CompleteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> EstimatedDurationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClientManagement.UI.ServiceAccess.cmLogicService.ExpenseDTO ExpenseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> ExpenseIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NotesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ServiceTypeIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> StartDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClientManagement.UI.ServiceAccess.cmLogicService.ClientDTO clientField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClientManagement.UI.ServiceAccess.cmLogicService.ServiceTypeDTO typeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClientManagement.UI.ServiceAccess.cmLogicService.AspNetUsers userField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ClientId {
+            get {
+                return this.ClientIdField;
+            }
+            set {
+                if ((this.ClientIdField.Equals(value) != true)) {
+                    this.ClientIdField = value;
+                    this.RaisePropertyChanged("ClientId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Complete {
+            get {
+                return this.CompleteField;
+            }
+            set {
+                if ((this.CompleteField.Equals(value) != true)) {
+                    this.CompleteField = value;
+                    this.RaisePropertyChanged("Complete");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> EstimatedDuration {
+            get {
+                return this.EstimatedDurationField;
+            }
+            set {
+                if ((this.EstimatedDurationField.Equals(value) != true)) {
+                    this.EstimatedDurationField = value;
+                    this.RaisePropertyChanged("EstimatedDuration");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ClientManagement.UI.ServiceAccess.cmLogicService.ExpenseDTO Expense {
+            get {
+                return this.ExpenseField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ExpenseField, value) != true)) {
+                    this.ExpenseField = value;
+                    this.RaisePropertyChanged("Expense");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> ExpenseId {
+            get {
+                return this.ExpenseIdField;
+            }
+            set {
+                if ((this.ExpenseIdField.Equals(value) != true)) {
+                    this.ExpenseIdField = value;
+                    this.RaisePropertyChanged("ExpenseId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Notes {
+            get {
+                return this.NotesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NotesField, value) != true)) {
+                    this.NotesField = value;
+                    this.RaisePropertyChanged("Notes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ServiceTypeId {
+            get {
+                return this.ServiceTypeIdField;
+            }
+            set {
+                if ((this.ServiceTypeIdField.Equals(value) != true)) {
+                    this.ServiceTypeIdField = value;
+                    this.RaisePropertyChanged("ServiceTypeId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> StartDate {
+            get {
+                return this.StartDateField;
+            }
+            set {
+                if ((this.StartDateField.Equals(value) != true)) {
+                    this.StartDateField = value;
+                    this.RaisePropertyChanged("StartDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserIdField, value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ClientManagement.UI.ServiceAccess.cmLogicService.ClientDTO client {
+            get {
+                return this.clientField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.clientField, value) != true)) {
+                    this.clientField = value;
+                    this.RaisePropertyChanged("client");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ClientManagement.UI.ServiceAccess.cmLogicService.ServiceTypeDTO type {
+            get {
+                return this.typeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.typeField, value) != true)) {
+                    this.typeField = value;
+                    this.RaisePropertyChanged("type");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ClientManagement.UI.ServiceAccess.cmLogicService.AspNetUsers user {
+            get {
+                return this.userField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.userField, value) != true)) {
+                    this.userField = value;
+                    this.RaisePropertyChanged("user");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ExpenseDTO", Namespace="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models")]
+    [System.SerializableAttribute()]
+    public partial class ExpenseDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal CostField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Cost {
+            get {
+                return this.CostField;
+            }
+            set {
+                if ((this.CostField.Equals(value) != true)) {
+                    this.CostField = value;
+                    this.RaisePropertyChanged("Cost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceTypeDTO", Namespace="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models")]
+    [System.SerializableAttribute()]
+    public partial class ServiceTypeDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> RateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> Rate {
+            get {
+                return this.RateField;
+            }
+            set {
+                if ((this.RateField.Equals(value) != true)) {
+                    this.RateField = value;
+                    this.RaisePropertyChanged("Rate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserIdField, value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="cmLogicService.IService")]
     public interface IService {
@@ -839,6 +1246,18 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getAspNetUsersByName", ReplyAction="http://tempuri.org/IService/getAspNetUsersByNameResponse")]
         System.Threading.Tasks.Task<ClientManagement.UI.ServiceAccess.cmLogicService.AspNetUsers[]> getAspNetUsersByNameAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getClientsByUserId", ReplyAction="http://tempuri.org/IService/getClientsByUserIdResponse")]
+        ClientManagement.UI.ServiceAccess.cmLogicService.ClientDTO[] getClientsByUserId(string userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getClientsByUserId", ReplyAction="http://tempuri.org/IService/getClientsByUserIdResponse")]
+        System.Threading.Tasks.Task<ClientManagement.UI.ServiceAccess.cmLogicService.ClientDTO[]> getClientsByUserIdAsync(string userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getClientsforUser", ReplyAction="http://tempuri.org/IService/getClientsforUserResponse")]
+        ClientManagement.UI.ServiceAccess.cmLogicService.ClientDTO[] getClientsforUser(ClientManagement.UI.ServiceAccess.cmLogicService.AspNetUsers user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getClientsforUser", ReplyAction="http://tempuri.org/IService/getClientsforUserResponse")]
+        System.Threading.Tasks.Task<ClientManagement.UI.ServiceAccess.cmLogicService.ClientDTO[]> getClientsforUserAsync(ClientManagement.UI.ServiceAccess.cmLogicService.AspNetUsers user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getClients", ReplyAction="http://tempuri.org/IService/getClientsResponse")]
         ClientManagement.UI.ServiceAccess.cmLogicService.ClientDTO[] getClients();
@@ -938,11 +1357,11 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getAddressDTOs", ReplyAction="http://tempuri.org/IService/getAddressDTOsResponse")]
         System.Threading.Tasks.Task<ClientManagement.UI.ServiceAccess.cmLogicService.AddressDTO[]> getAddressDTOsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getAddressDTO", ReplyAction="http://tempuri.org/IService/getAddressDTOResponse")]
-        ClientManagement.UI.ServiceAccess.cmLogicService.AddressDTO[] getAddressDTO(string street, string city, string state, string zip);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getAddressDTOByStreetandCityandStateandZip", ReplyAction="http://tempuri.org/IService/getAddressDTOByStreetandCityandStateandZipResponse")]
+        ClientManagement.UI.ServiceAccess.cmLogicService.AddressDTO[] getAddressDTOByStreetandCityandStateandZip(string street, string city, string state, string zip);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getAddressDTO", ReplyAction="http://tempuri.org/IService/getAddressDTOResponse")]
-        System.Threading.Tasks.Task<ClientManagement.UI.ServiceAccess.cmLogicService.AddressDTO[]> getAddressDTOAsync(string street, string city, string state, string zip);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getAddressDTOByStreetandCityandStateandZip", ReplyAction="http://tempuri.org/IService/getAddressDTOByStreetandCityandStateandZipResponse")]
+        System.Threading.Tasks.Task<ClientManagement.UI.ServiceAccess.cmLogicService.AddressDTO[]> getAddressDTOByStreetandCityandStateandZipAsync(string street, string city, string state, string zip);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getAddressDTOByStreet", ReplyAction="http://tempuri.org/IService/getAddressDTOByStreetResponse")]
         ClientManagement.UI.ServiceAccess.cmLogicService.AddressDTO[] getAddressDTOByStreet(string street);
@@ -979,6 +1398,24 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getAddressDTOsByCity", ReplyAction="http://tempuri.org/IService/getAddressDTOsByCityResponse")]
         System.Threading.Tasks.Task<ClientManagement.UI.ServiceAccess.cmLogicService.AddressDTO[]> getAddressDTOsByCityAsync(string city);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getjobs", ReplyAction="http://tempuri.org/IService/getjobsResponse")]
+        ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO[] getjobs();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getjobs", ReplyAction="http://tempuri.org/IService/getjobsResponse")]
+        System.Threading.Tasks.Task<ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO[]> getjobsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getServiceTypes", ReplyAction="http://tempuri.org/IService/getServiceTypesResponse")]
+        ClientManagement.UI.ServiceAccess.cmLogicService.ServiceTypeDTO[] getServiceTypes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getServiceTypes", ReplyAction="http://tempuri.org/IService/getServiceTypesResponse")]
+        System.Threading.Tasks.Task<ClientManagement.UI.ServiceAccess.cmLogicService.ServiceTypeDTO[]> getServiceTypesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/insertJob", ReplyAction="http://tempuri.org/IService/insertJobResponse")]
+        bool insertJob(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/insertJob", ReplyAction="http://tempuri.org/IService/insertJobResponse")]
+        System.Threading.Tasks.Task<bool> insertJobAsync(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/insertAspNetUsers", ReplyAction="http://tempuri.org/IService/insertAspNetUsersResponse")]
         bool insertAspNetUsers(ClientManagement.UI.ServiceAccess.cmLogicService.AspNetUsers user);
@@ -1022,6 +1459,24 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/insertAddressDTOs", ReplyAction="http://tempuri.org/IService/insertAddressDTOsResponse")]
         System.Threading.Tasks.Task<bool> insertAddressDTOsAsync(ClientManagement.UI.ServiceAccess.cmLogicService.AddressDTO address);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/insertServiceType", ReplyAction="http://tempuri.org/IService/insertServiceTypeResponse")]
+        bool insertServiceType(ClientManagement.UI.ServiceAccess.cmLogicService.ServiceTypeDTO type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/insertServiceType", ReplyAction="http://tempuri.org/IService/insertServiceTypeResponse")]
+        System.Threading.Tasks.Task<bool> insertServiceTypeAsync(ClientManagement.UI.ServiceAccess.cmLogicService.ServiceTypeDTO type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/deleteJob", ReplyAction="http://tempuri.org/IService/deleteJobResponse")]
+        bool deleteJob(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/deleteJob", ReplyAction="http://tempuri.org/IService/deleteJobResponse")]
+        System.Threading.Tasks.Task<bool> deleteJobAsync(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/deleteServiceType", ReplyAction="http://tempuri.org/IService/deleteServiceTypeResponse")]
+        bool deleteServiceType(ClientManagement.UI.ServiceAccess.cmLogicService.ServiceTypeDTO type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/deleteServiceType", ReplyAction="http://tempuri.org/IService/deleteServiceTypeResponse")]
+        System.Threading.Tasks.Task<bool> deleteServiceTypeAsync(ClientManagement.UI.ServiceAccess.cmLogicService.ServiceTypeDTO type);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/deleteAddress", ReplyAction="http://tempuri.org/IService/deleteAddressResponse")]
         bool deleteAddress(ClientManagement.UI.ServiceAccess.cmLogicService.AddressDTO address);
         
@@ -1063,6 +1518,18 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/deleteClient", ReplyAction="http://tempuri.org/IService/deleteClientResponse")]
         System.Threading.Tasks.Task<bool> deleteClientAsync(ClientManagement.UI.ServiceAccess.cmLogicService.ClientDTO client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/updateJob", ReplyAction="http://tempuri.org/IService/updateJobResponse")]
+        bool updateJob(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/updateJob", ReplyAction="http://tempuri.org/IService/updateJobResponse")]
+        System.Threading.Tasks.Task<bool> updateJobAsync(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/updateServiceType", ReplyAction="http://tempuri.org/IService/updateServiceTypeResponse")]
+        bool updateServiceType(ClientManagement.UI.ServiceAccess.cmLogicService.ServiceTypeDTO type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/updateServiceType", ReplyAction="http://tempuri.org/IService/updateServiceTypeResponse")]
+        System.Threading.Tasks.Task<bool> updateServiceTypeAsync(ClientManagement.UI.ServiceAccess.cmLogicService.ServiceTypeDTO type);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/updateAddress", ReplyAction="http://tempuri.org/IService/updateAddressResponse")]
         bool updateAddress(ClientManagement.UI.ServiceAccess.cmLogicService.AddressDTO address);
@@ -1148,6 +1615,22 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
         
         public System.Threading.Tasks.Task<ClientManagement.UI.ServiceAccess.cmLogicService.AspNetUsers[]> getAspNetUsersByNameAsync(string name) {
             return base.Channel.getAspNetUsersByNameAsync(name);
+        }
+        
+        public ClientManagement.UI.ServiceAccess.cmLogicService.ClientDTO[] getClientsByUserId(string userId) {
+            return base.Channel.getClientsByUserId(userId);
+        }
+        
+        public System.Threading.Tasks.Task<ClientManagement.UI.ServiceAccess.cmLogicService.ClientDTO[]> getClientsByUserIdAsync(string userId) {
+            return base.Channel.getClientsByUserIdAsync(userId);
+        }
+        
+        public ClientManagement.UI.ServiceAccess.cmLogicService.ClientDTO[] getClientsforUser(ClientManagement.UI.ServiceAccess.cmLogicService.AspNetUsers user) {
+            return base.Channel.getClientsforUser(user);
+        }
+        
+        public System.Threading.Tasks.Task<ClientManagement.UI.ServiceAccess.cmLogicService.ClientDTO[]> getClientsforUserAsync(ClientManagement.UI.ServiceAccess.cmLogicService.AspNetUsers user) {
+            return base.Channel.getClientsforUserAsync(user);
         }
         
         public ClientManagement.UI.ServiceAccess.cmLogicService.ClientDTO[] getClients() {
@@ -1278,12 +1761,12 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
             return base.Channel.getAddressDTOsAsync();
         }
         
-        public ClientManagement.UI.ServiceAccess.cmLogicService.AddressDTO[] getAddressDTO(string street, string city, string state, string zip) {
-            return base.Channel.getAddressDTO(street, city, state, zip);
+        public ClientManagement.UI.ServiceAccess.cmLogicService.AddressDTO[] getAddressDTOByStreetandCityandStateandZip(string street, string city, string state, string zip) {
+            return base.Channel.getAddressDTOByStreetandCityandStateandZip(street, city, state, zip);
         }
         
-        public System.Threading.Tasks.Task<ClientManagement.UI.ServiceAccess.cmLogicService.AddressDTO[]> getAddressDTOAsync(string street, string city, string state, string zip) {
-            return base.Channel.getAddressDTOAsync(street, city, state, zip);
+        public System.Threading.Tasks.Task<ClientManagement.UI.ServiceAccess.cmLogicService.AddressDTO[]> getAddressDTOByStreetandCityandStateandZipAsync(string street, string city, string state, string zip) {
+            return base.Channel.getAddressDTOByStreetandCityandStateandZipAsync(street, city, state, zip);
         }
         
         public ClientManagement.UI.ServiceAccess.cmLogicService.AddressDTO[] getAddressDTOByStreet(string street) {
@@ -1332,6 +1815,30 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
         
         public System.Threading.Tasks.Task<ClientManagement.UI.ServiceAccess.cmLogicService.AddressDTO[]> getAddressDTOsByCityAsync(string city) {
             return base.Channel.getAddressDTOsByCityAsync(city);
+        }
+        
+        public ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO[] getjobs() {
+            return base.Channel.getjobs();
+        }
+        
+        public System.Threading.Tasks.Task<ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO[]> getjobsAsync() {
+            return base.Channel.getjobsAsync();
+        }
+        
+        public ClientManagement.UI.ServiceAccess.cmLogicService.ServiceTypeDTO[] getServiceTypes() {
+            return base.Channel.getServiceTypes();
+        }
+        
+        public System.Threading.Tasks.Task<ClientManagement.UI.ServiceAccess.cmLogicService.ServiceTypeDTO[]> getServiceTypesAsync() {
+            return base.Channel.getServiceTypesAsync();
+        }
+        
+        public bool insertJob(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job) {
+            return base.Channel.insertJob(job);
+        }
+        
+        public System.Threading.Tasks.Task<bool> insertJobAsync(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job) {
+            return base.Channel.insertJobAsync(job);
         }
         
         public bool insertAspNetUsers(ClientManagement.UI.ServiceAccess.cmLogicService.AspNetUsers user) {
@@ -1390,6 +1897,30 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
             return base.Channel.insertAddressDTOsAsync(address);
         }
         
+        public bool insertServiceType(ClientManagement.UI.ServiceAccess.cmLogicService.ServiceTypeDTO type) {
+            return base.Channel.insertServiceType(type);
+        }
+        
+        public System.Threading.Tasks.Task<bool> insertServiceTypeAsync(ClientManagement.UI.ServiceAccess.cmLogicService.ServiceTypeDTO type) {
+            return base.Channel.insertServiceTypeAsync(type);
+        }
+        
+        public bool deleteJob(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job) {
+            return base.Channel.deleteJob(job);
+        }
+        
+        public System.Threading.Tasks.Task<bool> deleteJobAsync(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job) {
+            return base.Channel.deleteJobAsync(job);
+        }
+        
+        public bool deleteServiceType(ClientManagement.UI.ServiceAccess.cmLogicService.ServiceTypeDTO type) {
+            return base.Channel.deleteServiceType(type);
+        }
+        
+        public System.Threading.Tasks.Task<bool> deleteServiceTypeAsync(ClientManagement.UI.ServiceAccess.cmLogicService.ServiceTypeDTO type) {
+            return base.Channel.deleteServiceTypeAsync(type);
+        }
+        
         public bool deleteAddress(ClientManagement.UI.ServiceAccess.cmLogicService.AddressDTO address) {
             return base.Channel.deleteAddress(address);
         }
@@ -1444,6 +1975,22 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
         
         public System.Threading.Tasks.Task<bool> deleteClientAsync(ClientManagement.UI.ServiceAccess.cmLogicService.ClientDTO client) {
             return base.Channel.deleteClientAsync(client);
+        }
+        
+        public bool updateJob(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job) {
+            return base.Channel.updateJob(job);
+        }
+        
+        public System.Threading.Tasks.Task<bool> updateJobAsync(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job) {
+            return base.Channel.updateJobAsync(job);
+        }
+        
+        public bool updateServiceType(ClientManagement.UI.ServiceAccess.cmLogicService.ServiceTypeDTO type) {
+            return base.Channel.updateServiceType(type);
+        }
+        
+        public System.Threading.Tasks.Task<bool> updateServiceTypeAsync(ClientManagement.UI.ServiceAccess.cmLogicService.ServiceTypeDTO type) {
+            return base.Channel.updateServiceTypeAsync(type);
         }
         
         public bool updateAddress(ClientManagement.UI.ServiceAccess.cmLogicService.AddressDTO address) {

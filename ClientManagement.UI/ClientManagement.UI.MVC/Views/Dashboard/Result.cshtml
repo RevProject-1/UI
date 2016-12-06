@@ -1,0 +1,24 @@
+﻿@model ClientManagement.UI.MVC.Models.DashboardViewModel
+@{
+    ViewBag.Title = "Dashboard";
+}
+<h2>User Dashboard</h2>
+
+<br/>
+@if (Model.statusCode == 0)
+{
+    @: <span class="alert alert-success">@Model.message</span>
+}
+
+else if (Model.statusCode == 1)
+{
+    @: <span class="alert alert-danger">@Model.message</span>
+}
+
+else
+{
+    @: <span class="alert alert-warning">Unable to process your request.</span>
+}
+<br />
+
+@Html.Partial("DashboardOptions")
