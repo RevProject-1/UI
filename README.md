@@ -1,5 +1,5 @@
-##Client Manager
-#UI Repository
+#Client Manager
+##UI Repository
 
-#Project Summary
-The client management tool is the ultimate lite weight application for small businesses to manage their clientele. Managing everything from client contact information, client related documents and images as well as services provided and receipts, the client management tool helps its users stay on top of business needs.
+##Project Summary
+Client Manager is the ultimate lite weight application for service-based businesses to manage their clientele. The application manages client contact information, invoices, and client related documents and images. Client Manager also helps businesses manage their upcoming service appointments and keep record of previous appointments.
