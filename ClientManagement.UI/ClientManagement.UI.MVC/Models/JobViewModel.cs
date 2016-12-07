@@ -10,8 +10,8 @@ namespace ClientManagement.UI.MVC.Models
 {
     public class JobViewModel
     {
-        public JobViewModelOptions JobOptions;
-        public JobViewModelData JobData;
+        public JobViewModelOptions JobOptions { get; set; }
+        public JobViewModelData JobData { get; set; }
 
         public JobViewModel()
         {

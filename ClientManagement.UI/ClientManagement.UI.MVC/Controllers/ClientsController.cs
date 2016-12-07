@@ -45,13 +45,11 @@ namespace ClientManagement.UI.MVC.Controllers
 
             if (addedSucessfully)
             {
-                ViewBag.Message = "Client Added Sucessfully";
-                return RedirectToAction("Index", "Dashboard");
+                return RedirectToAction("Result", "Dashboard", new { statusCode = 0, message = "Client Added Sucessfully" });
             }
             else
             {
-                ViewBag.Message = "Client Not Added Sucessfully";
-                return RedirectToAction("Index", "Dashboard");
+                return RedirectToAction("Result", "Dashboard", new { statusCode = 1, message = "Client Not Added Sucessfully" });
             }
         }
 

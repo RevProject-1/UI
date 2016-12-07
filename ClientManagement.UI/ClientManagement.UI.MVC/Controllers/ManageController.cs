@@ -7,9 +7,12 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ClientManagement.UI.MVC.Models;
+using ClientManagement.UI.ServiceAccess;
+using ClientManagement.UI.ServiceAccess.cmLogicService;
 
 namespace ClientManagement.UI.MVC.Controllers
 {
+    #region Default MVC
     [Authorize]
     public class ManageController : Controller
     {
@@ -333,7 +336,7 @@ namespace ClientManagement.UI.MVC.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
@@ -384,6 +387,58 @@ namespace ClientManagement.UI.MVC.Controllers
             Error
         }
 
-#endregion
+        #endregion
+
+        #endregion
+
+        [HttpGet]
+        public ActionResult UpdateUser()
+        {
+            //Load default data into view model for user
+            UpdateUserViewModel model = new UpdateUserViewModel();
+            LogicService cmLogic = new LogicService();
+
+            string userId = User.Identity.GetUserId();
+            AspNetUsers currentUser = cmLogic.GetUserById(userId);
+
+            model.CompanyName = currentUser.Name;
+            model.Email = currentUser.Email;
+            model.PhoneNumber = currentUser.PhoneNumber;
+            model.Street = currentUser.StreetAddress;
+            model.City = currentUser.City;
+            model.State = currentUser.State;
+            model.Zip = currentUser.Zip;
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateUser(UpdateUserViewModel model)
+        {
+            string UserId = User.Identity.GetUserId();
+
+            LogicService cmLogic = new LogicService();
+            
+            bool addedSucessfully = cmLogic.UpdateUser(
+                model.CompanyName,
+                model.Email,
+                model.PhoneNumber,
+                UserId,
+                model.Street,
+                model.City,
+                model.State,
+                model.Zip);
+
+
+            if (addedSucessfully)
+            {
+                return RedirectToAction("Result", "Dashboard", new { statusCode = 0, message = "Updated User Sucessfully" });
+            }
+            else
+            {
+                return RedirectToAction("Result", "Dashboard", new { statusCode = 1, message = "User Not Updated Sucessfully" });
+            }
+        }
+
     }
 }

@@ -47,7 +47,7 @@ namespace ClientManagement.UI.MVC.Controllers
             }
         }
 
-
+        [HttpGet]
         public ActionResult ScheduleJob()
         {
             var model = new JobViewModel();
@@ -87,12 +87,27 @@ namespace ClientManagement.UI.MVC.Controllers
         [HttpPost]
         public ActionResult ScheduleJob(JobViewModel model)
         {
-
             string userId = User.Identity.GetUserId();
+
+            //Construct date time to send to logic 
+            DateTime startDateTime = new DateTime(
+                            int.Parse(model.JobData.Year),
+                            int.Parse(model.JobData.Month),
+                            int.Parse(model.JobData.Day),
+                            int.Parse(model.JobData.Hour),
+                            int.Parse(model.JobData.Minute),
+                            0
+                            );
 
             //Send new data to logic layer
             LogicService cmLogic = new LogicService();
-            bool addedSucessfully = cmLogic.ScheduleJob();
+            bool addedSucessfully = cmLogic.ScheduleJob(
+                startDateTime,
+                int.Parse(model.JobData.Duration),
+                model.JobData.Notes,
+                userId,
+                model.JobOptions.SelectedClient,
+                model.JobOptions.SelectedServiceType);
 
             //Redirect back to dashbaord, print results to screen
             if (addedSucessfully)

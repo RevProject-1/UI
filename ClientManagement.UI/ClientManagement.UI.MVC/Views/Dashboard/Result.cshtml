@@ -4,21 +4,19 @@
 }
 <h2>User Dashboard</h2>
 
-<br/>
 @if (Model.statusCode == 0)
 {
-    @: <span class="alert alert-success">@Model.message</span>
+    @: <p class="alert alert-success">@Model.message</p>
 }
 
 else if (Model.statusCode == 1)
 {
-    @: <span class="alert alert-danger">@Model.message</span>
+    @: <p class="alert alert-danger">@Model.message</p>
 }
 
 else
 {
-    @: <span class="alert alert-warning">Unable to process your request.</span>
+    @: <p class="alert alert-warning">Unable to process your request.</p>
 }
-<br />
 
 @Html.Partial("DashboardOptions")

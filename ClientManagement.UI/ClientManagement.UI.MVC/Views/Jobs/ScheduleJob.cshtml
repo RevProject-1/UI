@@ -4,7 +4,7 @@
 }
 
 <h2>@ViewBag.Title</h2>
-
+<hr/>
 @using (Html.BeginForm("ScheduleJob", "Jobs", FormMethod.Post))
 {
     <div class="row">
@@ -12,16 +12,17 @@
 
             <br />
             <p>
-                Select Services:<br />
-                @Html.ListBox("ListBoxServiceTypes", Model.JobOptions.ServiceTypeOptions, new { @class = "form-control" })
+                Select Client:<br />
+                @Html.DropDownListFor(m => m.JobOptions.SelectedClient, Model.JobOptions.ClientOptions, "Select Client", new { @class = "form-control" })
             </p>
 
             <p>
-                Select a Client:<br />
-                @Html.DropDownList("DropDownClientOptions", Model.JobOptions.ClientOptions, new { @class = "form-control" })
+                Select a Service Type:<br />
+                @Html.DropDownListFor(m => m.JobOptions.SelectedServiceType, Model.JobOptions.ServiceTypeOptions, "Select Service Type", new { @class = "form-control" })
             </p>
 
-            <br/>
+
+            <br />
             <p><strong>Start Date:</strong></p>
             <p>
                 Day:<br />
@@ -37,6 +38,7 @@
                 Year:<br />
                 @Html.TextBoxFor(m => m.JobData.Year, Model.JobData.Year, new { @class = "form-control" })
             </p>
+
 
             <br />
             <p><strong>Start Time:</strong></p>
@@ -66,7 +68,7 @@
 
     <div class="row">
         <div class="col-sm-12">
-            <button type="submit" class="btn-sm">Submit</button>
+            <button type="submit" class="btn-default">Submit</button>
         </div>
     </div>
 }

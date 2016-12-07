@@ -7,13 +7,13 @@ namespace ClientManagement.UI.MVC.Models
 {
     public class JobViewModelData
     {
-        public string Day;
-        public string Month;
-        public string Year;
-        public string Hour;
-        public string Minute;
+        public string Day { get; set; }
+        public string Month { get; set; }
+        public string Year { get; set; }
+        public string Hour { get; set; }
+        public string Minute { get; set; }
 
-        public string Duration;
-        public string Notes;
+        public string Duration { get; set; }
+        public string Notes { get; set; }
     }
 }

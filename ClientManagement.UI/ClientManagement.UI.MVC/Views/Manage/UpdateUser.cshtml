@@ -1,0 +1,57 @@
+﻿@model ClientManagement.UI.MVC.Models.UpdateUserViewModel
+@{
+    ViewBag.Title = "Update User";
+}
+
+<h2>@ViewBag.Title</h2>
+<hr/>
+@using (Html.BeginForm("UpdateUser", "Manage", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-sm-3">
+            <p>
+                Company Name:<br />
+                @Html.TextBoxFor(m => m.CompanyName, Model.CompanyName, new { @class = "form-control" })
+            </p>
+
+            <p>
+                Email:<br />
+                @Html.TextBoxFor(m => m.Email, Model.Email, new { @class = "form-control" })
+            </p>
+
+            <p>
+                Phone Number:<br />
+                @Html.TextBoxFor(m => m.PhoneNumber, Model.PhoneNumber, new { @class = "form-control" })
+            </p>
+
+            <p>
+                Street:<br />
+                @Html.TextBoxFor(m => m.Street, Model.Street, new { @class = "form-control" })
+            </p>
+
+            <p>
+                City:<br />
+                @Html.TextBoxFor(m => m.City, Model.City, new { @class = "form-control" })
+            </p>
+
+            <p>
+                State:<br />
+                @Html.TextBoxFor(m => m.State, Model.State, new { @class = "form-control" })
+            </p>
+
+            <p>
+                Zip:<br />
+                @Html.TextBoxFor(m => m.Zip, Model.Zip, new { @class = "form-control" })
+            </p>
+
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <button type="submit" class="btn-default">Submit</button>
+            </div>
+        </div>
+}
+
+

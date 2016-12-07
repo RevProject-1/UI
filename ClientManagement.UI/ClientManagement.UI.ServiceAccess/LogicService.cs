@@ -12,6 +12,32 @@ namespace ClientManagement.UI.ServiceAccess
     {
         private ServiceClient cmLogicService = new ServiceClient();
 
+        #region User Related
+        public AspNetUsers GetUserById(string userId)
+        {
+            List<AspNetUsers> users = cmLogicService.getUserById(userId).ToList();
+
+            return users.First();
+        }
+
+        public bool UpdateUser(string name, string email, string phone, string userId, string street, string city, string state, string zip)
+        {
+            AspNetUsers updatedUser = new AspNetUsers();
+
+            updatedUser.Name = name;
+            updatedUser.Email = email;
+            updatedUser.UserName = email;
+            updatedUser.PhoneNumber = phone;
+            updatedUser.Id = userId;
+            updatedUser.StreetAddress = street;
+            updatedUser.City = city;
+            updatedUser.State = state;
+            updatedUser.Zip = zip;
+
+            return cmLogicService.updateAspNetUsers(updatedUser);
+        }
+        #endregion
+
         #region Client Related
         public List<ClientDTO> GetClientsForUser(string userId)
         {
@@ -27,7 +53,6 @@ namespace ClientManagement.UI.ServiceAccess
             newClient.Email = email;
             newClient.PhoneNumber = phone;
             newClient.UserId = userId;
-
 
             AddressDTO address = new AddressDTO();
 
@@ -63,18 +88,32 @@ namespace ClientManagement.UI.ServiceAccess
         #endregion
 
         #region Job Related 
-        public bool ScheduleJob(string name, decimal rate, string userId)
+        public bool ScheduleJob(DateTime startDate, int estDuration, string notes, string userId, string clientName, string serviceTypeName)
         {
+            //Define data memebers that need to be assigned for InsertJob in the logic layer
             jobDTO newJob = new jobDTO();
 
-            newJob.ClientId
-            newJob.EstimatedDuration
-            newJob.Complete
-            newJob.Notes
+            AspNetUsers user = new AspNetUsers();
+            ClientDTO client = new ClientDTO();
+            ServiceTypeDTO serviceType = new ServiceTypeDTO();
 
+            //Assign data members given the data from the Jobs controller
+            user = cmLogicService.getUserById(userId).First();
+            client = cmLogicService.getClientsByName(clientName).First();
+            serviceType = cmLogicService.getServiceTypeByName(serviceTypeName).First();
 
-            return cmLogicService.insertServiceType(newServiceType);
+            //Create JobDTO object and pass to logic layer
+            newJob.StartDate = startDate;
+            newJob.EstimatedDuration = estDuration;
+            newJob.Notes = notes;
+            newJob.user = user;
+            newJob.client = client;
+            newJob.type = serviceType;
+
+            return cmLogicService.insertJob(newJob);
         }
+
         #endregion
+
     }
 }

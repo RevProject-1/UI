@@ -58,18 +58,6 @@
     <None Include="Service References\cmLogicService\ClientManagement.UI.ServiceAccess.cmLogicService.AddressDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\cmLogicService\ClientManagement.UI.ServiceAccess.cmLogicService.AspNetRoles.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\cmLogicService\ClientManagement.UI.ServiceAccess.cmLogicService.AspNetUserClaims.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\cmLogicService\ClientManagement.UI.ServiceAccess.cmLogicService.AspNetUserLogins.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\cmLogicService\ClientManagement.UI.ServiceAccess.cmLogicService.AspNetUserRoles.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\cmLogicService\ClientManagement.UI.ServiceAccess.cmLogicService.AspNetUsers.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -77,6 +65,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\cmLogicService\ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\cmLogicService\ClientManagement.UI.ServiceAccess.cmLogicService.JobExpenseDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\cmLogicService\ClientManagement.UI.ServiceAccess.cmLogicService.ServiceTypeDTO.datasource">
