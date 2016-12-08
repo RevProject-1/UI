@@ -18,6 +18,36 @@ namespace ClientManagement.UI.MVC.Controllers
             return RedirectToAction("Index", "Dashboard");
         }
 
+        public ActionResult ViewJob(int jobId)
+        {
+            string UserId = User.Identity.GetUserId();
+
+            var model = new JobViewModel();
+            LogicService cmLogic = new LogicService();
+
+            //Acquire job from logic
+            var jobsForUser = cmLogic.GetJobsForUser(UserId);
+            var matchingJob= jobsForUser.Where(j => j.Id == jobId);
+
+            if (matchingJob.Count() > 0)
+            {
+                var job = matchingJob.First();
+
+                model.ServiceType = job.type.Name;
+                model.ClientName = job.client.Name;
+                model.Duration = job.EstimatedDuration.ToString();
+                model.Notes = job.Notes;
+                model.Completed = job.Complete ? "Complete" : "Incomplete";
+                model.StartDate = job.StartDate;
+
+                return View(model);
+            }
+
+            else
+            {
+                return RedirectToAction("Result", "Dashboard", new { statusCode = 1, message = "Unable To Access Job Information" });
+            }
+        }
 
         public ActionResult AddServiceType()
         {
@@ -50,7 +80,7 @@ namespace ClientManagement.UI.MVC.Controllers
         [HttpGet]
         public ActionResult ScheduleJob()
         {
-            var model = new JobViewModel();
+            var model = new AddJobViewModel();
 
             //Populate list box for displaying Service Type selection
             LogicService cmLogic = new LogicService();
@@ -85,7 +115,7 @@ namespace ClientManagement.UI.MVC.Controllers
 
 
         [HttpPost]
-        public ActionResult ScheduleJob(JobViewModel model)
+        public ActionResult ScheduleJob(AddJobViewModel model)
         {
             string userId = User.Identity.GetUserId();
 

@@ -871,8 +871,10 @@
           <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="expenses" nillable="true" type="tns:ArrayOfInvoiceExpenses" />
-          <xs:element minOccurs="0" name="subTotal" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="totalExpenses" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="subTotal" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="subTotalString" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="totalExpenses" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="totalExpensesString" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
       <xs:element name="Invoice" nillable="true" type="tns:Invoice" />

@@ -54,5 +54,34 @@ namespace ClientManagement.UI.MVC.Controllers
             return View(model);
         }
 
+        public ActionResult SearchClient(string clientName)
+        {
+            DashboardViewModel model = new DashboardViewModel();
+
+            string UserId = User.Identity.GetUserId();
+            LogicService cmLogic = new LogicService();
+
+            //Get clients for the user that match the search string
+            var allClientsForUser = cmLogic.GetClientsForUser(UserId);
+            List<ClientDTO> matchingClients = new List<ClientDTO>();
+
+            foreach (ClientDTO client in allClientsForUser)
+            {
+                //Only return search result if the search term is 2 characters or more
+                if (clientName.Length >= 2)
+                {
+                    //Make case insensitive
+                    //Return client if client name matches or the search term contains the client name
+                    if ((client.Name.ToLower().Contains(clientName.ToLower())) || (client.Name.ToLower() == clientName.ToLower()))
+                    {
+                        matchingClients.Add(client);
+                    }
+                }
+            }
+
+            model.ClientsForUser.ClientsToDisplay = matchingClients;
+
+            return View(model);
+        }
     }
 }

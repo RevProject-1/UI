@@ -199,6 +199,7 @@
     <Compile Include="Models\DisplayClientsViewModel.cs" />
     <Compile Include="Models\DisplayJobsViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\AddJobViewModel.cs" />
     <Compile Include="Models\JobViewModel.cs" />
     <Compile Include="Models\JobViewModelData.cs" />
     <Compile Include="Models\JobViewModelOptions.cs" />
@@ -295,7 +296,9 @@
     <Content Include="Views\Dashboard\_DashboardSidebar.cshtml" />
     <Content Include="Views\Manage\UpdateUser.cshtml" />
     <Content Include="Views\Clients\ViewClient.cshtml" />
+    <Content Include="Views\Dashboard\SearchClient.cshtml" />
     <None Include="Service References\cmLogicService\Service1.wsdl" />
+    <Content Include="Views\Jobs\ViewJob.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

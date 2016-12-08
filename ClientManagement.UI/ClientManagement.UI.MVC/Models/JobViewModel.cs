@@ -1,22 +1,17 @@
-﻿using ClientManagement.UI.ServiceAccess;
-using ClientManagement.UI.ServiceAccess.cmLogicService;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 
 namespace ClientManagement.UI.MVC.Models
 {
     public class JobViewModel
     {
-        public JobViewModelOptions JobOptions { get; set; }
-        public JobViewModelData JobData { get; set; }
-
-        public JobViewModel()
-        {
-            JobOptions = new JobViewModelOptions();
-            JobData = new JobViewModelData();
-        }
+        public string ServiceType { get; set; }
+        public string ClientName { get; set; }
+        public string Duration { get; set; }
+        public string Notes { get; set; }
+        public string Completed { get; set; }
+        public DateTime? StartDate { get; set; }
     }
 }

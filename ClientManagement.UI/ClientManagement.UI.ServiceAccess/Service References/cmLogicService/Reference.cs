@@ -1103,10 +1103,16 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
         private ClientManagement.UI.ServiceAccess.cmLogicService.InvoiceExpenses[] expensesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string subTotalField;
+        private System.Nullable<decimal> subTotalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string totalExpensesField;
+        private string subTotalStringField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> totalExpensesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string totalExpensesStringField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1314,12 +1320,12 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string subTotal {
+        public System.Nullable<decimal> subTotal {
             get {
                 return this.subTotalField;
             }
             set {
-                if ((object.ReferenceEquals(this.subTotalField, value) != true)) {
+                if ((this.subTotalField.Equals(value) != true)) {
                     this.subTotalField = value;
                     this.RaisePropertyChanged("subTotal");
                 }
@@ -1327,14 +1333,40 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string totalExpenses {
+        public string subTotalString {
+            get {
+                return this.subTotalStringField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.subTotalStringField, value) != true)) {
+                    this.subTotalStringField = value;
+                    this.RaisePropertyChanged("subTotalString");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> totalExpenses {
             get {
                 return this.totalExpensesField;
             }
             set {
-                if ((object.ReferenceEquals(this.totalExpensesField, value) != true)) {
+                if ((this.totalExpensesField.Equals(value) != true)) {
                     this.totalExpensesField = value;
                     this.RaisePropertyChanged("totalExpenses");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string totalExpensesString {
+            get {
+                return this.totalExpensesStringField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.totalExpensesStringField, value) != true)) {
+                    this.totalExpensesStringField = value;
+                    this.RaisePropertyChanged("totalExpensesString");
                 }
             }
         }

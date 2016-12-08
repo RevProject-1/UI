@@ -76,14 +76,14 @@
                             <td>@Model.JobsForUser.JobsToDisplay[i].StartDate.ToString()</td>
                             <td>@Model.JobsForUser.JobsToDisplay[i].EstimatedDuration.ToString() Days</td>
                             <td>
-                            @if (@Model.JobsForUser.JobsToDisplay[i].Complete)
-                            {
-                                @:Completed 
+                                @if (@Model.JobsForUser.JobsToDisplay[i].Complete)
+                                {
+                                    @:Completed
                             }
 
-                            else
-                            {
-                                @:Incomplete 
+                                else
+                                {
+                                    @:Incomplete
                             }
                             </td>
                             <td><a class="btn-sm btn-default" href="/client-manager/Jobs/ViewJob?jobId=@Model.JobsForUser.JobsToDisplay[i].Id">View Details</a></td>
@@ -105,7 +105,5 @@
         @Html.Partial("_DashboardSidebar")
     </div>
 
-    <br/>
+    <br />
 </div>
-
-
