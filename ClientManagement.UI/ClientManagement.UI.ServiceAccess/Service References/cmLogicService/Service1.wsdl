@@ -504,6 +504,20 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="completeJob">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="job" nillable="true" type="q39:jobDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="completeJobResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="completeJobResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="getJobsForUser">
         <xs:complexType>
           <xs:sequence>
@@ -514,7 +528,7 @@
       <xs:element name="getJobsForUserResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getJobsForUserResult" nillable="true" type="q39:ArrayOfjobDTO" />
+            <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getJobsForUserResult" nillable="true" type="q40:ArrayOfjobDTO" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -528,7 +542,7 @@
       <xs:element name="getJobsByUserCompleteResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getJobsByUserCompleteResult" nillable="true" type="q40:ArrayOfjobDTO" />
+            <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getJobsByUserCompleteResult" nillable="true" type="q41:ArrayOfjobDTO" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -542,7 +556,7 @@
       <xs:element name="getJobsByUserIncompleteResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getJobsByUserIncompleteResult" nillable="true" type="q41:ArrayOfjobDTO" />
+            <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getJobsByUserIncompleteResult" nillable="true" type="q42:ArrayOfjobDTO" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -554,14 +568,14 @@
       <xs:element name="getjobsResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getjobsResult" nillable="true" type="q42:ArrayOfjobDTO" />
+            <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getjobsResult" nillable="true" type="q43:ArrayOfjobDTO" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element name="insertJob">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="job" nillable="true" type="q43:jobDTO" />
+            <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="job" nillable="true" type="q44:jobDTO" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -575,7 +589,7 @@
       <xs:element name="deleteJob">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="job" nillable="true" type="q44:jobDTO" />
+            <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="job" nillable="true" type="q45:jobDTO" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -589,7 +603,7 @@
       <xs:element name="updateJob">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="job" nillable="true" type="q45:jobDTO" />
+            <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="job" nillable="true" type="q46:jobDTO" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -597,20 +611,6 @@
         <xs:complexType>
           <xs:sequence>
             <xs:element minOccurs="0" name="updateJobResult" type="xs:boolean" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="completeJob">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="job" nillable="true" type="q46:jobDTO" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="completeJobResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="completeJobResult" type="xs:boolean" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -1107,6 +1107,12 @@
   <wsdl:message name="IService_deleteJobExpense_OutputMessage">
     <wsdl:part name="parameters" element="tns:deleteJobExpenseResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_completeJob_InputMessage">
+    <wsdl:part name="parameters" element="tns:completeJob" />
+  </wsdl:message>
+  <wsdl:message name="IService_completeJob_OutputMessage">
+    <wsdl:part name="parameters" element="tns:completeJobResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_getJobsForUser_InputMessage">
     <wsdl:part name="parameters" element="tns:getJobsForUser" />
   </wsdl:message>
@@ -1148,12 +1154,6 @@
   </wsdl:message>
   <wsdl:message name="IService_updateJob_OutputMessage">
     <wsdl:part name="parameters" element="tns:updateJobResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService_completeJob_InputMessage">
-    <wsdl:part name="parameters" element="tns:completeJob" />
-  </wsdl:message>
-  <wsdl:message name="IService_completeJob_OutputMessage">
-    <wsdl:part name="parameters" element="tns:completeJobResponse" />
   </wsdl:message>
   <wsdl:message name="IService_getExpenses_InputMessage">
     <wsdl:part name="parameters" element="tns:getExpenses" />
@@ -1330,6 +1330,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/deleteJobExpense" message="tns:IService_deleteJobExpense_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/deleteJobExpenseResponse" message="tns:IService_deleteJobExpense_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="completeJob">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/completeJob" message="tns:IService_completeJob_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/completeJobResponse" message="tns:IService_completeJob_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="getJobsForUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/getJobsForUser" message="tns:IService_getJobsForUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/getJobsForUserResponse" message="tns:IService_getJobsForUser_OutputMessage" />
@@ -1357,10 +1361,6 @@
     <wsdl:operation name="updateJob">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/updateJob" message="tns:IService_updateJob_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/updateJobResponse" message="tns:IService_updateJob_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="completeJob">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/completeJob" message="tns:IService_completeJob_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/completeJobResponse" message="tns:IService_completeJob_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="getExpenses">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/getExpenses" message="tns:IService_getExpenses_InputMessage" />
@@ -1709,6 +1709,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="completeJob">
+      <soap:operation soapAction="http://tempuri.org/IService/completeJob" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getJobsForUser">
       <soap:operation soapAction="http://tempuri.org/IService/getJobsForUser" style="document" />
       <wsdl:input>
@@ -1765,15 +1774,6 @@
     </wsdl:operation>
     <wsdl:operation name="updateJob">
       <soap:operation soapAction="http://tempuri.org/IService/updateJob" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="completeJob">
-      <soap:operation soapAction="http://tempuri.org/IService/completeJob" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

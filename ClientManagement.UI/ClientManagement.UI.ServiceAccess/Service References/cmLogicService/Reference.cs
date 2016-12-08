@@ -1630,6 +1630,12 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/deleteJobExpense", ReplyAction="http://tempuri.org/IService/deleteJobExpenseResponse")]
         System.Threading.Tasks.Task<bool> deleteJobExpenseAsync(ClientManagement.UI.ServiceAccess.cmLogicService.JobExpenseDTO je);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/completeJob", ReplyAction="http://tempuri.org/IService/completeJobResponse")]
+        bool completeJob(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/completeJob", ReplyAction="http://tempuri.org/IService/completeJobResponse")]
+        System.Threading.Tasks.Task<bool> completeJobAsync(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getJobsForUser", ReplyAction="http://tempuri.org/IService/getJobsForUserResponse")]
         ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO[] getJobsForUser(string userId);
         
@@ -1671,12 +1677,6 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/updateJob", ReplyAction="http://tempuri.org/IService/updateJobResponse")]
         System.Threading.Tasks.Task<bool> updateJobAsync(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/completeJob", ReplyAction="http://tempuri.org/IService/completeJobResponse")]
-        bool completeJob(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/completeJob", ReplyAction="http://tempuri.org/IService/completeJobResponse")]
-        System.Threading.Tasks.Task<bool> completeJobAsync(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getExpenses", ReplyAction="http://tempuri.org/IService/getExpensesResponse")]
         ClientManagement.UI.ServiceAccess.cmLogicService.ExpenseDTO[] getExpenses();
@@ -2024,6 +2024,14 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
             return base.Channel.deleteJobExpenseAsync(je);
         }
         
+        public bool completeJob(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job) {
+            return base.Channel.completeJob(job);
+        }
+        
+        public System.Threading.Tasks.Task<bool> completeJobAsync(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job) {
+            return base.Channel.completeJobAsync(job);
+        }
+        
         public ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO[] getJobsForUser(string userId) {
             return base.Channel.getJobsForUser(userId);
         }
@@ -2078,14 +2086,6 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
         
         public System.Threading.Tasks.Task<bool> updateJobAsync(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job) {
             return base.Channel.updateJobAsync(job);
-        }
-        
-        public bool completeJob(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job) {
-            return base.Channel.completeJob(job);
-        }
-        
-        public System.Threading.Tasks.Task<bool> completeJobAsync(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job) {
-            return base.Channel.completeJobAsync(job);
         }
         
         public ClientManagement.UI.ServiceAccess.cmLogicService.ExpenseDTO[] getExpenses() {

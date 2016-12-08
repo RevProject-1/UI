@@ -194,6 +194,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ClientViewModel.cs" />
+    <Compile Include="Models\AddClientViewModel.cs" />
     <Compile Include="Models\DashboardViewModel.cs" />
     <Compile Include="Models\DisplayClientsViewModel.cs" />
     <Compile Include="Models\DisplayJobsViewModel.cs" />
@@ -293,6 +294,7 @@
     <Content Include="Views\Dashboard\Result.cshtml" />
     <Content Include="Views\Dashboard\_DashboardSidebar.cshtml" />
     <Content Include="Views\Manage\UpdateUser.cshtml" />
+    <Content Include="Views\Clients\ViewClient.cshtml" />
     <None Include="Service References\cmLogicService\Service1.wsdl" />
   </ItemGroup>
   <ItemGroup>

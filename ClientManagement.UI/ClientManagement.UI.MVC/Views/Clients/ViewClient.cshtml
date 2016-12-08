@@ -1,0 +1,88 @@
+﻿@model ClientManagement.UI.MVC.Models.ClientViewModel
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<h2>Client Details</h2>
+<hr />
+
+<div class="row">
+    <div class="col-sm-9">
+        <h3 style="margin-top:0px;">@Model.Name</h3>
+        <p>
+            @Model.StreetAddress<br/>
+            @Model.City, @Model.State @Model.Zip<br />
+            <a href="tel:@Model.PhoneNumber">@Model.PhoneNumber</a><br />
+            <a href="mailto:@Model.Email">@Model.Email</a><br />
+        </p>
+
+        <div class="gap"></div>
+
+        <h3>Jobs For @Model.Name</h3>
+        @if (Model.JobsForClient.Count() > 0)
+        {
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Service Type</th>
+                        <th>Client Name</th>
+                        <th>Start Date</th>
+                        <th>Duration</th>
+                        <th>Status</th>
+                        <th>View Details</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @for (int i = 0; i < Model.JobsForClient.Count(); i++)
+                    {
+                        <tr>
+                            <td>@Model.JobsForClient[i].type.Name</td>
+                            <td>@Model.JobsForClient[i].client.Name</td>
+                            <td>@Model.JobsForClient[i].StartDate.ToString()</td>
+                            <td>@Model.JobsForClient[i].EstimatedDuration.ToString() Days</td>
+                            <td>
+                                @if (@Model.JobsForClient[i].Complete)
+                                {
+                                    @:Completed
+                            }
+
+                                else
+                                {
+                                    @:Incomplete
+                            }
+                            </td>
+                            <td><a class="btn-sm btn-default" href="/client-manager/Jobs/ViewJob?jobId=@Model.JobsForClient[i].Id">View Details</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+        else
+        {
+            <p>You currently do not have any jobs for this client.</p>
+            <a class="btn btn-default" href="/client-manager/Jobs/ScheduleJob/">Add Job</a><br />
+        }
+    </div>
+
+    <div class="col-sm-3">
+
+        <div class="container">
+            <div class="panel panel-default">
+                <div class="panel-heading h3">Options</div>
+                <div class="panel-body">
+                    <h4>Manage Client</h4>
+                    <hr/>
+                    <a class="btn btn-default" href="/client-manager/#">Update Client</a><br />
+                    <br />
+                    <a class="btn btn-default" href="/client-manager/#">Remove Client</a><br />
+                    <br />
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <br />
+</div>
