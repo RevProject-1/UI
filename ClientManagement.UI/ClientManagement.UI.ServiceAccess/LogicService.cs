@@ -87,7 +87,13 @@ namespace ClientManagement.UI.ServiceAccess
         }
         #endregion
 
-        #region Job Related 
+        #region Job Related
+        public List<jobDTO> GetJobsForUser(string userId)
+        {
+            List<jobDTO> jobs = cmLogicService.getJobsForUser(userId).ToList();
+            return jobs;
+        }
+
         public bool ScheduleJob(DateTime startDate, int estDuration, string notes, string userId, string clientName, string serviceTypeName)
         {
             //Define data memebers that need to be assigned for InsertJob in the logic layer
@@ -115,5 +121,6 @@ namespace ClientManagement.UI.ServiceAccess
 
         #endregion
 
+        
     }
 }

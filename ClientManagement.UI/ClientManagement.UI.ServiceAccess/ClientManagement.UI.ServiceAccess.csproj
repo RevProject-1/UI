@@ -64,6 +64,12 @@
     <None Include="Service References\cmLogicService\ClientManagement.UI.ServiceAccess.cmLogicService.ClientDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\cmLogicService\ClientManagement.UI.ServiceAccess.cmLogicService.ExpenseDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\cmLogicService\ClientManagement.UI.ServiceAccess.cmLogicService.Invoice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\cmLogicService\ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

@@ -11,33 +11,23 @@
         <div class="col-sm-3">
 
             <br />
-            <p>
-                Select Client:<br />
-                @Html.DropDownListFor(m => m.JobOptions.SelectedClient, Model.JobOptions.ClientOptions, "Select Client", new { @class = "form-control" })
-            </p>
+            <p>Select Client:<br />
+                @Html.DropDownListFor(m => m.JobOptions.SelectedClient, Model.JobOptions.ClientOptions, "Select Client", new { @class = "form-control" })</p>
 
-            <p>
-                Select a Service Type:<br />
-                @Html.DropDownListFor(m => m.JobOptions.SelectedServiceType, Model.JobOptions.ServiceTypeOptions, "Select Service Type", new { @class = "form-control" })
-            </p>
-
+            <p>Select a Service Type:<br />
+                @Html.DropDownListFor(m => m.JobOptions.SelectedServiceType, Model.JobOptions.ServiceTypeOptions, "Select Service Type", new { @class = "form-control" })</p>
+            
 
             <br />
             <p><strong>Start Date:</strong></p>
-            <p>
-                Day:<br />
-                @Html.TextBoxFor(m => m.JobData.Day, Model.JobData.Day, new { @class = "form-control" })
-            </p>
+            <p>Day:<br />
+                @Html.TextBoxFor(m => m.JobData.Day, Model.JobData.Day, new { @class = "form-control" })</p>
 
-            <p>
-                Month:<br />
-                @Html.TextBoxFor(m => m.JobData.Month, Model.JobData.Month, new { @class = "form-control" })
-            </p>
+            <p>Month:<br />
+                @Html.TextBoxFor(m => m.JobData.Month, Model.JobData.Month, new { @class = "form-control" })</p>
 
-            <p>
-                Year:<br />
-                @Html.TextBoxFor(m => m.JobData.Year, Model.JobData.Year, new { @class = "form-control" })
-            </p>
+            <p>Year:<br />
+                @Html.TextBoxFor(m => m.JobData.Year, Model.JobData.Year, new { @class = "form-control" })</p>
 
 
             <br />
@@ -53,22 +43,18 @@
             </p>
 
             <br />
-            <p>
-                Estimated Job Duration (Days):<br />
-                @Html.TextBoxFor(m => m.JobData.Duration, Model.JobData.Duration, new { @class = "form-control" })
-            </p>
+            <p>Estimated Job Duration (Days):<br />
+                @Html.TextBoxFor(m => m.JobData.Duration, Model.JobData.Duration, new { @class = "form-control" })</p>
 
-            <p>
-                Additional Notes:<br />
-                @Html.TextBoxFor(m => m.JobData.Notes, Model.JobData.Notes, new { @class = "form-control" })
-            </p>
+            <p>Additional Notes:<br />
+                @Html.TextBoxFor(m => m.JobData.Notes, Model.JobData.Notes, new { @class = "form-control" })</p>
 
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm-12">
-            <button type="submit" class="btn-default">Submit</button>
+            <button type="submit" class="btn btn-default">Submit</button>
         </div>
     </div>
 }

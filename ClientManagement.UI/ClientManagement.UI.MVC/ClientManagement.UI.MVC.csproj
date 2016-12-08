@@ -195,6 +195,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ClientViewModel.cs" />
     <Compile Include="Models\DashboardViewModel.cs" />
+    <Compile Include="Models\DisplayClientsViewModel.cs" />
     <Compile Include="Models\DisplayJobsViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\JobViewModel.cs" />
@@ -230,6 +231,8 @@
     <Content Include="Properties\DataSources\ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO.datasource" />
     <Content Include="Properties\DataSources\ClientManagement.UI.ServiceAccess.cmLogicService.ServiceTypeDTO.datasource" />
     <Content Include="Properties\DataSources\ClientManagement.UI.ServiceAccess.cmLogicService.JobExpenseDTO.datasource" />
+    <Content Include="Properties\DataSources\ClientManagement.UI.ServiceAccess.cmLogicService.ExpenseDTO.datasource" />
+    <Content Include="Properties\DataSources\ClientManagement.UI.ServiceAccess.cmLogicService.Invoice.datasource" />
     <None Include="Properties\PublishProfiles\Client Manager MVC.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -243,24 +246,6 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Service References\cmLogicService\ClientManagement.UI.MVC.cmLogicService.AddressDTO.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\cmLogicService\ClientManagement.UI.MVC.cmLogicService.AspNetUsers.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\cmLogicService\ClientManagement.UI.MVC.cmLogicService.ClientDTO.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\cmLogicService\ClientManagement.UI.MVC.cmLogicService.jobDTO.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\cmLogicService\ClientManagement.UI.MVC.cmLogicService.JobExpenseDTO.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\cmLogicService\ClientManagement.UI.MVC.cmLogicService.ServiceTypeDTO.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Service References\cmLogicService\configuration91.svcinfo" />
     <None Include="Service References\cmLogicService\configuration.svcinfo" />
     <None Include="Service References\cmLogicService\Reference.svcmap">
@@ -306,7 +291,7 @@
     <Content Include="Views\Jobs\ScheduleJob.cshtml" />
     <Content Include="Views\Jobs\AddServiceType.cshtml" />
     <Content Include="Views\Dashboard\Result.cshtml" />
-    <Content Include="Views\Dashboard\DashboardOptions.cshtml" />
+    <Content Include="Views\Dashboard\_DashboardSidebar.cshtml" />
     <Content Include="Views\Manage\UpdateUser.cshtml" />
     <None Include="Service References\cmLogicService\Service1.wsdl" />
   </ItemGroup>

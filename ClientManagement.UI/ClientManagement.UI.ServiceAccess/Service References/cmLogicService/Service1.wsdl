@@ -504,6 +504,20 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="getJobsForUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getJobsForUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getJobsForUserResult" nillable="true" type="q39:ArrayOfjobDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="getJobsByUserComplete">
         <xs:complexType>
           <xs:sequence>
@@ -514,7 +528,7 @@
       <xs:element name="getJobsByUserCompleteResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getJobsByUserCompleteResult" nillable="true" type="q39:ArrayOfjobDTO" />
+            <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getJobsByUserCompleteResult" nillable="true" type="q40:ArrayOfjobDTO" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -528,7 +542,7 @@
       <xs:element name="getJobsByUserIncompleteResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getJobsByUserIncompleteResult" nillable="true" type="q40:ArrayOfjobDTO" />
+            <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getJobsByUserIncompleteResult" nillable="true" type="q41:ArrayOfjobDTO" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -540,14 +554,14 @@
       <xs:element name="getjobsResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getjobsResult" nillable="true" type="q41:ArrayOfjobDTO" />
+            <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getjobsResult" nillable="true" type="q42:ArrayOfjobDTO" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element name="insertJob">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="job" nillable="true" type="q42:jobDTO" />
+            <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="job" nillable="true" type="q43:jobDTO" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -561,7 +575,7 @@
       <xs:element name="deleteJob">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="job" nillable="true" type="q43:jobDTO" />
+            <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="job" nillable="true" type="q44:jobDTO" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -575,7 +589,7 @@
       <xs:element name="updateJob">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="job" nillable="true" type="q44:jobDTO" />
+            <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="job" nillable="true" type="q45:jobDTO" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -583,6 +597,88 @@
         <xs:complexType>
           <xs:sequence>
             <xs:element minOccurs="0" name="updateJobResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="completeJob">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="job" nillable="true" type="q46:jobDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="completeJobResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="completeJobResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getExpenses">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getExpensesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="getExpensesResult" nillable="true" type="q47:ArrayOfExpenseDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertExpense">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="expense" nillable="true" type="q48:ExpenseDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertExpenseResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="insertExpenseResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateExpense">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="expense" nillable="true" type="q49:ExpenseDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateExpenseResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="updateExpenseResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteExpense">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="expense" nillable="true" type="q50:ExpenseDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteExpenseResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="deleteExpenseResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="generateInvoice">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="job" nillable="true" type="q51:jobDTO" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="generateInvoiceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models" minOccurs="0" name="generateInvoiceResult" nillable="true" type="q52:Invoice" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -668,6 +764,7 @@
           <xs:element minOccurs="0" name="Address" nillable="true" type="tns:AddressDTO" />
           <xs:element minOccurs="0" name="AddressID" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
           <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
@@ -733,7 +830,7 @@
           <xs:element minOccurs="0" name="ClientId" type="xs:int" />
           <xs:element minOccurs="0" name="Complete" type="xs:boolean" />
           <xs:element minOccurs="0" name="EstimatedDuration" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="Hours" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Hours" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="Id" type="xs:int" />
           <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ServiceTypeId" type="xs:int" />
@@ -751,6 +848,47 @@
         </xs:sequence>
       </xs:complexType>
       <xs:element name="ArrayOfjobDTO" nillable="true" type="tns:ArrayOfjobDTO" />
+      <xs:complexType name="ArrayOfExpenseDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ExpenseDTO" nillable="true" type="tns:ExpenseDTO" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfExpenseDTO" nillable="true" type="tns:ArrayOfExpenseDTO" />
+      <xs:complexType name="Invoice">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BilledHours" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BusinessName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BusinessPhoneNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientCity" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientState" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientStreet" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HourlyRate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ServiceType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="expenses" nillable="true" type="tns:ArrayOfInvoiceExpenses" />
+          <xs:element minOccurs="0" name="subTotal" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="totalExpenses" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Invoice" nillable="true" type="tns:Invoice" />
+      <xs:complexType name="ArrayOfInvoiceExpenses">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="InvoiceExpenses" nillable="true" type="tns:InvoiceExpenses" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfInvoiceExpenses" nillable="true" type="tns:ArrayOfInvoiceExpenses" />
+      <xs:complexType name="InvoiceExpenses">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cost" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="InvoiceExpenses" nillable="true" type="tns:InvoiceExpenses" />
     </xs:schema>
   </wsdl:types>
   <wsdl:message name="IService_insertAspNetUsers_InputMessage">
@@ -969,6 +1107,12 @@
   <wsdl:message name="IService_deleteJobExpense_OutputMessage">
     <wsdl:part name="parameters" element="tns:deleteJobExpenseResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_getJobsForUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:getJobsForUser" />
+  </wsdl:message>
+  <wsdl:message name="IService_getJobsForUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getJobsForUserResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_getJobsByUserComplete_InputMessage">
     <wsdl:part name="parameters" element="tns:getJobsByUserComplete" />
   </wsdl:message>
@@ -1004,6 +1148,42 @@
   </wsdl:message>
   <wsdl:message name="IService_updateJob_OutputMessage">
     <wsdl:part name="parameters" element="tns:updateJobResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_completeJob_InputMessage">
+    <wsdl:part name="parameters" element="tns:completeJob" />
+  </wsdl:message>
+  <wsdl:message name="IService_completeJob_OutputMessage">
+    <wsdl:part name="parameters" element="tns:completeJobResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getExpenses_InputMessage">
+    <wsdl:part name="parameters" element="tns:getExpenses" />
+  </wsdl:message>
+  <wsdl:message name="IService_getExpenses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getExpensesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_insertExpense_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertExpense" />
+  </wsdl:message>
+  <wsdl:message name="IService_insertExpense_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertExpenseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_updateExpense_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateExpense" />
+  </wsdl:message>
+  <wsdl:message name="IService_updateExpense_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateExpenseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_deleteExpense_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteExpense" />
+  </wsdl:message>
+  <wsdl:message name="IService_deleteExpense_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteExpenseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_generateInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:generateInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IService_generateInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:generateInvoiceResponse" />
   </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="insertAspNetUsers">
@@ -1150,6 +1330,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/deleteJobExpense" message="tns:IService_deleteJobExpense_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/deleteJobExpenseResponse" message="tns:IService_deleteJobExpense_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="getJobsForUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getJobsForUser" message="tns:IService_getJobsForUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getJobsForUserResponse" message="tns:IService_getJobsForUser_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="getJobsByUserComplete">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/getJobsByUserComplete" message="tns:IService_getJobsByUserComplete_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/getJobsByUserCompleteResponse" message="tns:IService_getJobsByUserComplete_OutputMessage" />
@@ -1173,6 +1357,30 @@
     <wsdl:operation name="updateJob">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/updateJob" message="tns:IService_updateJob_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/updateJobResponse" message="tns:IService_updateJob_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="completeJob">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/completeJob" message="tns:IService_completeJob_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/completeJobResponse" message="tns:IService_completeJob_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getExpenses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getExpenses" message="tns:IService_getExpenses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getExpensesResponse" message="tns:IService_getExpenses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertExpense">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/insertExpense" message="tns:IService_insertExpense_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/insertExpenseResponse" message="tns:IService_insertExpense_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateExpense">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/updateExpense" message="tns:IService_updateExpense_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/updateExpenseResponse" message="tns:IService_updateExpense_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteExpense">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/deleteExpense" message="tns:IService_deleteExpense_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/deleteExpenseResponse" message="tns:IService_deleteExpense_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="generateInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/generateInvoice" message="tns:IService_generateInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/generateInvoiceResponse" message="tns:IService_generateInvoice_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -1501,6 +1709,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getJobsForUser">
+      <soap:operation soapAction="http://tempuri.org/IService/getJobsForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getJobsByUserComplete">
       <soap:operation soapAction="http://tempuri.org/IService/getJobsByUserComplete" style="document" />
       <wsdl:input>
@@ -1548,6 +1765,60 @@
     </wsdl:operation>
     <wsdl:operation name="updateJob">
       <soap:operation soapAction="http://tempuri.org/IService/updateJob" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="completeJob">
+      <soap:operation soapAction="http://tempuri.org/IService/completeJob" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getExpenses">
+      <soap:operation soapAction="http://tempuri.org/IService/getExpenses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertExpense">
+      <soap:operation soapAction="http://tempuri.org/IService/insertExpense" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateExpense">
+      <soap:operation soapAction="http://tempuri.org/IService/updateExpense" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteExpense">
+      <soap:operation soapAction="http://tempuri.org/IService/deleteExpense" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generateInvoice">
+      <soap:operation soapAction="http://tempuri.org/IService/generateInvoice" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

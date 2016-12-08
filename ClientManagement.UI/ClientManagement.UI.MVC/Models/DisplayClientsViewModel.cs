@@ -6,8 +6,8 @@ using System.Web;
 
 namespace ClientManagement.UI.MVC.Models
 {
-    public class DisplayJobsViewModel
+    public class DisplayClientsViewModel
     {
-        public List<jobDTO> JobsToDisplay { get; set; }
+        public List<ClientDTO> ClientsToDisplay { get; set; }
     }
 }

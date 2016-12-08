@@ -1,6 +1,91 @@
-﻿@{
+﻿@model ClientManagement.UI.MVC.Models.DashboardViewModel
+@{
     ViewBag.Title = "Dashboard";
 }
 
 <h2>User Dashboard</h2>
-@Html.Partial("DashboardOptions")
+<hr/>
+
+<div class="row">
+    <div class="col-sm-9">
+        <h3 style="margin-top:0px;">Your Clients</h3>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Street</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zip</th>
+                    <th>View Details</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @for (int i = 0; i < Model.ClientsForUser.ClientsToDisplay.Count(); i++)
+            {
+                    <tr>
+                        <td>@Model.ClientsForUser.ClientsToDisplay[i].Name</td>
+                        <td>@Model.ClientsForUser.ClientsToDisplay[i].Email</td>
+                        <td>@Model.ClientsForUser.ClientsToDisplay[i].PhoneNumber</td>
+                        <td>@Model.ClientsForUser.ClientsToDisplay[i].Address.Street</td>
+                        <td>@Model.ClientsForUser.ClientsToDisplay[i].Address.City</td>
+                        <td>@Model.ClientsForUser.ClientsToDisplay[i].Address.State</td>
+                        <td>@Model.ClientsForUser.ClientsToDisplay[i].Address.Zip</td>
+                        <td><a class="btn-sm btn-default" href="/client-manager?Id=@Model.ClientsForUser.ClientsToDisplay[i].Id">View Details</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="gap"></div>
+
+
+        <h3>Your Jobs</h3>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Service Type</th>
+                    <th>Client Name</th>
+                    <th>Start Date</th>
+                    <th>Duration</th>
+                    <th>Status</th>
+                    <th>View Details</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @for (int i = 0; i < Model.JobsForUser.JobsToDisplay.Count(); i++)
+                {
+                    <tr>
+                        <td>@Model.JobsForUser.JobsToDisplay[i].type.Name</td>
+                        <td>@Model.JobsForUser.JobsToDisplay[i].client.Name</td>
+                        <td>@Model.JobsForUser.JobsToDisplay[i].StartDate.ToString()</td>
+                        <td>@Model.JobsForUser.JobsToDisplay[i].EstimatedDuration.ToString() Days</td>
+                        <td>
+                        @if (@Model.JobsForUser.JobsToDisplay[i].Complete)
+                        { 
+                            @:Completed 
+                        }
+
+                        else
+                        { 
+                            @:Incomplete 
+                        }
+                        </td>
+                        <td><a class="btn-sm btn-default" href="/client-manager?Id=@Model.JobsForUser.JobsToDisplay[i].Id">View Details</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-sm-3">
+        @Html.Partial("_DashboardSidebar")
+    </div>
+
+    <br/>
+</div>
+
+

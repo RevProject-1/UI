@@ -333,6 +333,9 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
         private string EmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -386,6 +389,19 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
                 if ((object.ReferenceEquals(this.EmailField, value) != true)) {
                     this.EmailField = value;
                     this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
                 }
             }
         }
@@ -830,7 +846,7 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
         private System.Nullable<int> EstimatedDurationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal HoursField;
+        private System.Nullable<decimal> HoursField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
@@ -906,7 +922,7 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Hours {
+        public System.Nullable<decimal> Hours {
             get {
                 return this.HoursField;
             }
@@ -1018,6 +1034,368 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
                 if ((object.ReferenceEquals(this.userField, value) != true)) {
                     this.userField = value;
                     this.RaisePropertyChanged("user");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Invoice", Namespace="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models")]
+    [System.SerializableAttribute()]
+    public partial class Invoice : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BilledHoursField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BusinessNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BusinessPhoneNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ClientCityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ClientNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ClientNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ClientStateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ClientStreetField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EndDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string HourlyRateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NotesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ServiceTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StartDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ZipCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClientManagement.UI.ServiceAccess.cmLogicService.InvoiceExpenses[] expensesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string subTotalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string totalExpensesField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BilledHours {
+            get {
+                return this.BilledHoursField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BilledHoursField, value) != true)) {
+                    this.BilledHoursField = value;
+                    this.RaisePropertyChanged("BilledHours");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BusinessName {
+            get {
+                return this.BusinessNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BusinessNameField, value) != true)) {
+                    this.BusinessNameField = value;
+                    this.RaisePropertyChanged("BusinessName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BusinessPhoneNumber {
+            get {
+                return this.BusinessPhoneNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BusinessPhoneNumberField, value) != true)) {
+                    this.BusinessPhoneNumberField = value;
+                    this.RaisePropertyChanged("BusinessPhoneNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ClientCity {
+            get {
+                return this.ClientCityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ClientCityField, value) != true)) {
+                    this.ClientCityField = value;
+                    this.RaisePropertyChanged("ClientCity");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ClientName {
+            get {
+                return this.ClientNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ClientNameField, value) != true)) {
+                    this.ClientNameField = value;
+                    this.RaisePropertyChanged("ClientName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ClientNumber {
+            get {
+                return this.ClientNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ClientNumberField, value) != true)) {
+                    this.ClientNumberField = value;
+                    this.RaisePropertyChanged("ClientNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ClientState {
+            get {
+                return this.ClientStateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ClientStateField, value) != true)) {
+                    this.ClientStateField = value;
+                    this.RaisePropertyChanged("ClientState");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ClientStreet {
+            get {
+                return this.ClientStreetField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ClientStreetField, value) != true)) {
+                    this.ClientStreetField = value;
+                    this.RaisePropertyChanged("ClientStreet");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EndDate {
+            get {
+                return this.EndDateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EndDateField, value) != true)) {
+                    this.EndDateField = value;
+                    this.RaisePropertyChanged("EndDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string HourlyRate {
+            get {
+                return this.HourlyRateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.HourlyRateField, value) != true)) {
+                    this.HourlyRateField = value;
+                    this.RaisePropertyChanged("HourlyRate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Notes {
+            get {
+                return this.NotesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NotesField, value) != true)) {
+                    this.NotesField = value;
+                    this.RaisePropertyChanged("Notes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ServiceType {
+            get {
+                return this.ServiceTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ServiceTypeField, value) != true)) {
+                    this.ServiceTypeField = value;
+                    this.RaisePropertyChanged("ServiceType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string StartDate {
+            get {
+                return this.StartDateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StartDateField, value) != true)) {
+                    this.StartDateField = value;
+                    this.RaisePropertyChanged("StartDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ZipCode {
+            get {
+                return this.ZipCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ZipCodeField, value) != true)) {
+                    this.ZipCodeField = value;
+                    this.RaisePropertyChanged("ZipCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ClientManagement.UI.ServiceAccess.cmLogicService.InvoiceExpenses[] expenses {
+            get {
+                return this.expensesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.expensesField, value) != true)) {
+                    this.expensesField = value;
+                    this.RaisePropertyChanged("expenses");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string subTotal {
+            get {
+                return this.subTotalField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.subTotalField, value) != true)) {
+                    this.subTotalField = value;
+                    this.RaisePropertyChanged("subTotal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string totalExpenses {
+            get {
+                return this.totalExpensesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.totalExpensesField, value) != true)) {
+                    this.totalExpensesField = value;
+                    this.RaisePropertyChanged("totalExpenses");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InvoiceExpenses", Namespace="http://schemas.datacontract.org/2004/07/ClientManagement.Backend.Logic.Models")]
+    [System.SerializableAttribute()]
+    public partial class InvoiceExpenses : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CostField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Cost {
+            get {
+                return this.CostField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CostField, value) != true)) {
+                    this.CostField = value;
+                    this.RaisePropertyChanged("Cost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
                 }
             }
         }
@@ -1252,6 +1630,12 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/deleteJobExpense", ReplyAction="http://tempuri.org/IService/deleteJobExpenseResponse")]
         System.Threading.Tasks.Task<bool> deleteJobExpenseAsync(ClientManagement.UI.ServiceAccess.cmLogicService.JobExpenseDTO je);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getJobsForUser", ReplyAction="http://tempuri.org/IService/getJobsForUserResponse")]
+        ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO[] getJobsForUser(string userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getJobsForUser", ReplyAction="http://tempuri.org/IService/getJobsForUserResponse")]
+        System.Threading.Tasks.Task<ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO[]> getJobsForUserAsync(string userId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getJobsByUserComplete", ReplyAction="http://tempuri.org/IService/getJobsByUserCompleteResponse")]
         ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO[] getJobsByUserComplete(string userId);
         
@@ -1287,6 +1671,42 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/updateJob", ReplyAction="http://tempuri.org/IService/updateJobResponse")]
         System.Threading.Tasks.Task<bool> updateJobAsync(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/completeJob", ReplyAction="http://tempuri.org/IService/completeJobResponse")]
+        bool completeJob(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/completeJob", ReplyAction="http://tempuri.org/IService/completeJobResponse")]
+        System.Threading.Tasks.Task<bool> completeJobAsync(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getExpenses", ReplyAction="http://tempuri.org/IService/getExpensesResponse")]
+        ClientManagement.UI.ServiceAccess.cmLogicService.ExpenseDTO[] getExpenses();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getExpenses", ReplyAction="http://tempuri.org/IService/getExpensesResponse")]
+        System.Threading.Tasks.Task<ClientManagement.UI.ServiceAccess.cmLogicService.ExpenseDTO[]> getExpensesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/insertExpense", ReplyAction="http://tempuri.org/IService/insertExpenseResponse")]
+        bool insertExpense(ClientManagement.UI.ServiceAccess.cmLogicService.ExpenseDTO expense);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/insertExpense", ReplyAction="http://tempuri.org/IService/insertExpenseResponse")]
+        System.Threading.Tasks.Task<bool> insertExpenseAsync(ClientManagement.UI.ServiceAccess.cmLogicService.ExpenseDTO expense);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/updateExpense", ReplyAction="http://tempuri.org/IService/updateExpenseResponse")]
+        bool updateExpense(ClientManagement.UI.ServiceAccess.cmLogicService.ExpenseDTO expense);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/updateExpense", ReplyAction="http://tempuri.org/IService/updateExpenseResponse")]
+        System.Threading.Tasks.Task<bool> updateExpenseAsync(ClientManagement.UI.ServiceAccess.cmLogicService.ExpenseDTO expense);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/deleteExpense", ReplyAction="http://tempuri.org/IService/deleteExpenseResponse")]
+        bool deleteExpense(ClientManagement.UI.ServiceAccess.cmLogicService.ExpenseDTO expense);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/deleteExpense", ReplyAction="http://tempuri.org/IService/deleteExpenseResponse")]
+        System.Threading.Tasks.Task<bool> deleteExpenseAsync(ClientManagement.UI.ServiceAccess.cmLogicService.ExpenseDTO expense);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/generateInvoice", ReplyAction="http://tempuri.org/IService/generateInvoiceResponse")]
+        ClientManagement.UI.ServiceAccess.cmLogicService.Invoice generateInvoice(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/generateInvoice", ReplyAction="http://tempuri.org/IService/generateInvoiceResponse")]
+        System.Threading.Tasks.Task<ClientManagement.UI.ServiceAccess.cmLogicService.Invoice> generateInvoiceAsync(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1604,6 +2024,14 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
             return base.Channel.deleteJobExpenseAsync(je);
         }
         
+        public ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO[] getJobsForUser(string userId) {
+            return base.Channel.getJobsForUser(userId);
+        }
+        
+        public System.Threading.Tasks.Task<ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO[]> getJobsForUserAsync(string userId) {
+            return base.Channel.getJobsForUserAsync(userId);
+        }
+        
         public ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO[] getJobsByUserComplete(string userId) {
             return base.Channel.getJobsByUserComplete(userId);
         }
@@ -1650,6 +2078,54 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
         
         public System.Threading.Tasks.Task<bool> updateJobAsync(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job) {
             return base.Channel.updateJobAsync(job);
+        }
+        
+        public bool completeJob(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job) {
+            return base.Channel.completeJob(job);
+        }
+        
+        public System.Threading.Tasks.Task<bool> completeJobAsync(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job) {
+            return base.Channel.completeJobAsync(job);
+        }
+        
+        public ClientManagement.UI.ServiceAccess.cmLogicService.ExpenseDTO[] getExpenses() {
+            return base.Channel.getExpenses();
+        }
+        
+        public System.Threading.Tasks.Task<ClientManagement.UI.ServiceAccess.cmLogicService.ExpenseDTO[]> getExpensesAsync() {
+            return base.Channel.getExpensesAsync();
+        }
+        
+        public bool insertExpense(ClientManagement.UI.ServiceAccess.cmLogicService.ExpenseDTO expense) {
+            return base.Channel.insertExpense(expense);
+        }
+        
+        public System.Threading.Tasks.Task<bool> insertExpenseAsync(ClientManagement.UI.ServiceAccess.cmLogicService.ExpenseDTO expense) {
+            return base.Channel.insertExpenseAsync(expense);
+        }
+        
+        public bool updateExpense(ClientManagement.UI.ServiceAccess.cmLogicService.ExpenseDTO expense) {
+            return base.Channel.updateExpense(expense);
+        }
+        
+        public System.Threading.Tasks.Task<bool> updateExpenseAsync(ClientManagement.UI.ServiceAccess.cmLogicService.ExpenseDTO expense) {
+            return base.Channel.updateExpenseAsync(expense);
+        }
+        
+        public bool deleteExpense(ClientManagement.UI.ServiceAccess.cmLogicService.ExpenseDTO expense) {
+            return base.Channel.deleteExpense(expense);
+        }
+        
+        public System.Threading.Tasks.Task<bool> deleteExpenseAsync(ClientManagement.UI.ServiceAccess.cmLogicService.ExpenseDTO expense) {
+            return base.Channel.deleteExpenseAsync(expense);
+        }
+        
+        public ClientManagement.UI.ServiceAccess.cmLogicService.Invoice generateInvoice(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job) {
+            return base.Channel.generateInvoice(job);
+        }
+        
+        public System.Threading.Tasks.Task<ClientManagement.UI.ServiceAccess.cmLogicService.Invoice> generateInvoiceAsync(ClientManagement.UI.ServiceAccess.cmLogicService.jobDTO job) {
+            return base.Channel.generateInvoiceAsync(job);
         }
     }
 }

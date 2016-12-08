@@ -14,7 +14,7 @@ namespace ClientManagement.UI.MVC.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Dashboard");
         }
 
         public ActionResult AddClient()

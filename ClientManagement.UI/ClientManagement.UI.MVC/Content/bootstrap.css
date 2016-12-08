@@ -21,7 +21,7 @@
 
 /*! Custom CSS */
 .gap{
-    margin-bottom:20px;
+    margin-bottom:32px;
 }
 
 
@@ -285,7 +285,7 @@ table {
   }
   .table td,
   .table th {
-    background-color: #fff !important;
+    background-color: #fff;
   }
   .btn > .caret,
   .dropup > .btn > .caret {
@@ -1490,6 +1490,11 @@ th {
   background-color: #f9f9f9;
 }
 
+.table-hover th {
+    background-color: #428bca !important;
+    color: #ffffff !important;
+}
+
 .table-hover > tbody > tr:hover > td,
 .table-hover > tbody > tr:hover > th {
   background-color: #f5f5f5;
@@ -2345,7 +2350,25 @@ fieldset[disabled] .btn-link:focus {
   border-radius: 6px;
 }
 
-.btn-sm,
+.btn-sm{
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+  text-decoration: none !important;
+
+  color: #333333;
+  background-color: #ebebeb;
+  border-color: #adadad;
+}
+
+.btn-sm:hover{
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+
+
 .btn-xs {
   padding: 5px 10px;
   font-size: 12px;
