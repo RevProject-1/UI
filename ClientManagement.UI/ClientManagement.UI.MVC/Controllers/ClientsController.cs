@@ -37,7 +37,7 @@ namespace ClientManagement.UI.MVC.Controllers
             var jobsForClientIncomplete = matchingJobsForClient.Where(j => j.Complete == false);
 
             //Sort jobs by start date
-            var  sortedJobsForClientComplete = jobsForClientComplete.OrderBy(j => j.StartDate).ToList();
+            var  sortedJobsForClientComplete = jobsForClientComplete.OrderBy(j => j.StartDate).Reverse().ToList();
             var sortedJobsForClientIncomplete = jobsForClientIncomplete.OrderBy(j => j.StartDate).ToList();
 
             if (matchingClient.Count() > 0)
