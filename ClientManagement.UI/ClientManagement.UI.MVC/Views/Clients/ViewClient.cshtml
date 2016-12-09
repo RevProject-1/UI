@@ -18,8 +18,8 @@
 
         <div class="gap"></div>
 
-        <h3>Jobs For @Model.Name</h3>
-        @if (Model.JobsForClient.Count() > 0)
+        <h3>Scheduled Jobs</h3>
+        @if (Model.JobsForClientIncomplete.Count() > 0)
         {
             <table class="table table-hover">
                 <thead>
@@ -34,15 +34,15 @@
                 </thead>
 
                 <tbody>
-                    @for (int i = 0; i < Model.JobsForClient.Count(); i++)
+                    @for (int i = 0; i < Model.JobsForClientIncomplete.Count(); i++)
                     {
                         <tr>
-                            <td>@Model.JobsForClient[i].type.Name</td>
-                            <td>@Model.JobsForClient[i].client.Name</td>
-                            <td>@Model.JobsForClient[i].StartDate.ToString()</td>
-                            <td>@Model.JobsForClient[i].EstimatedDuration.ToString() Days</td>
+                            <td>@Model.JobsForClientIncomplete[i].type.Name</td>
+                            <td>@Model.JobsForClientIncomplete[i].client.Name</td>
+                            <td>@Model.JobsForClientIncomplete[i].StartDate.ToString()</td>
+                            <td>@Model.JobsForClientIncomplete[i].EstimatedDuration.ToString() Days</td>
                             <td>
-                                @if (@Model.JobsForClient[i].Complete)
+                                @if (@Model.JobsForClientIncomplete[i].Complete)
                                 {
                                     @:Completed
                             }
@@ -52,7 +52,7 @@
                                     @:Incomplete
                             }
                             </td>
-                            <td><a class="btn-sm btn-default" href="/client-manager/Jobs/ViewJob?jobId=@Model.JobsForClient[i].Id">View Details</a></td>
+                            <td><a class="btn-sm btn-default" href="/client-manager/Jobs/ViewJob?jobId=@Model.JobsForClientIncomplete[i].Id">View Details</a></td>
                         </tr>
                     }
                 </tbody>
@@ -61,9 +61,58 @@
 
         else
         {
-            <p>You currently do not have any jobs for this client.</p>
+            <p>You currently do not have any jobs scheduled for this client.</p>
             <a class="btn btn-default" href="/client-manager/Jobs/ScheduleJob/">Add Job</a><br />
         }
+
+        <div class="gap"></div>
+
+        <h3>Job History</h3>
+        @if (Model.JobsForClientComplete.Count() > 0)
+        {
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Service Type</th>
+                        <th>Client Name</th>
+                        <th>Start Date</th>
+                        <th>Duration</th>
+                        <th>Status</th>
+                        <th>View Invoice</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @for (int i = 0; i < Model.JobsForClientComplete.Count(); i++)
+                    {
+                        <tr>
+                            <td>@Model.JobsForClientComplete[i].type.Name</td>
+                            <td>@Model.JobsForClientComplete[i].client.Name</td>
+                            <td>@Model.JobsForClientComplete[i].StartDate.ToString()</td>
+                            <td>@Model.JobsForClientComplete[i].EstimatedDuration.ToString() Days</td>
+                            <td>
+                                @if (@Model.JobsForClientComplete[i].Complete)
+                                {
+                                    @:Completed
+                            }
+
+                                else
+                                {
+                                    @:Incomplete
+                            }
+                            </td>
+                            <td><a class="btn-sm btn-default" href="/client-manager/Jobs/ViewJob?jobId=@Model.JobsForClientComplete[i].Id">View Invoice</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+        else
+        {
+            <p>You currently do not have any completed jobs for this client.</p>
+        }
+
     </div>
 
     <div class="col-sm-3">

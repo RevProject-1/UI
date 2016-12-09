@@ -15,6 +15,7 @@ namespace ClientManagement.UI.MVC.Models
         public string City { get; set; }
         public string State { get; set; }
         public string Zip { get; set; }
-        public List<jobDTO> JobsForClient { get; set; }
+        public List<jobDTO> JobsForClientComplete { get; set; }
+        public List<jobDTO> JobsForClientIncomplete { get; set; }
     }
 }

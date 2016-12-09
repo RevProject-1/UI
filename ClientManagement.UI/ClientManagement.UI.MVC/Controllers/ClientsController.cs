@@ -32,8 +32,13 @@ namespace ClientManagement.UI.MVC.Controllers
             var jobsForUser = cmLogic.GetJobsForUser(UserId);
             var matchingJobsForClient = jobsForUser.Where(j => j.ClientId == clientId);
 
+            //Split list into complete and incomplete lists
+            var jobsForClientComplete = matchingJobsForClient.Where(j => j.Complete == true);
+            var jobsForClientIncomplete = matchingJobsForClient.Where(j => j.Complete == false);
+
             //Sort jobs by start date
-            var  sortedJobsForClient = matchingJobsForClient.OrderBy(j => j.StartDate).ToList();
+            var  sortedJobsForClientComplete = jobsForClientComplete.OrderBy(j => j.StartDate).ToList();
+            var sortedJobsForClientIncomplete = jobsForClientIncomplete.OrderBy(j => j.StartDate).ToList();
 
             if (matchingClient.Count() > 0)
             {
@@ -46,7 +51,8 @@ namespace ClientManagement.UI.MVC.Controllers
                 model.City = client.Address.City;
                 model.State = client.Address.State;
                 model.Zip = client.Address.Zip;
-                model.JobsForClient = sortedJobsForClient.ToList();
+                model.JobsForClientComplete = sortedJobsForClientComplete;
+                model.JobsForClientIncomplete = sortedJobsForClientIncomplete;
 
                 return View(model);
             }
