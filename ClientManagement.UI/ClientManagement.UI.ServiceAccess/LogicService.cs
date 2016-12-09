@@ -94,22 +94,46 @@ namespace ClientManagement.UI.ServiceAccess
             return jobs;
         }
 
-        public bool CompleteJob(jobDTO jobToComplete)
+        public bool JobCompletionStatus(string jobId, string userId)
         {
-            bool result = cmLogicService.completeJob(jobToComplete);
-            return result;
+            //Get matching job
+            var allJobsForUser = cmLogicService.getJobsForUser(userId);
+            var matchingJob = allJobsForUser.Where(j => j.Id == int.Parse(jobId)).First();
+
+            //Return completion status
+            return matchingJob.Complete;
         }
 
-        public Invoice CreateInvoiceForJob(jobDTO jobRequestingInvoice)
+        public Invoice GetJobInvoice(string jobId, string userId)
         {
-            Invoice jobInvoice = cmLogicService.generateInvoice(jobRequestingInvoice);
-            return jobInvoice;
+            //Get matching job
+            var allJobsForUser = cmLogicService.getJobsForUser(userId);
+            var matchingJob = allJobsForUser.Where(j => j.Id == int.Parse(jobId)).First();
+
+            //Return generated invoice
+            return cmLogicService.generateInvoice(matchingJob);
         }
 
-        public bool UpdateJob(jobDTO jobToUpdate)
+        public bool UpdateJobForUser(string jobId, string userId, string hours)
         {
-            bool result = cmLogicService.updateJob(jobToUpdate);
-            return result;
+            //Get matching job
+            var allJobsForUser = cmLogicService.getJobsForUser(userId);
+            var matchingJob = allJobsForUser.Where(j => j.Id == int.Parse(jobId)).First();
+
+            //Update job hours
+            matchingJob.Hours = decimal.Parse(hours);
+
+            return cmLogicService.updateJob(matchingJob);
+        }
+
+        public bool CompleteJobForUser(string jobId, string userId)
+        {
+            //Get matching job
+            var allJobsForUser = cmLogicService.getJobsForUser(userId);
+            var matchingJob = allJobsForUser.Where(j => j.Id == int.Parse(jobId)).First();
+
+            //Complete Job
+            return cmLogicService.completeJob(matchingJob);
         }
 
         public bool ScheduleJob(DateTime startDate, int estDuration, string notes, string userId, string clientName, string serviceTypeName)
@@ -146,17 +170,47 @@ namespace ClientManagement.UI.ServiceAccess
             return expenses;
         }
 
-        public bool addExpense(ExpenseDTO expenseToAdd)
+        public List<JobExpenseDTO> GetAllExpenseAssignmentsForJob(string jobId)
         {
-            bool result = cmLogicService.insertExpense(expenseToAdd);
+            var allExpenseAssignments = cmLogicService.getJobExpenses().ToList();
+            var matchingExpenseAssignments = allExpenseAssignments.Where(ea => ea.JobId == int.Parse(jobId)).ToList();
+
+            return matchingExpenseAssignments;
+        }
+
+        public bool AddExpense(string expenseName, string expenseCost)
+        {
+            ExpenseDTO expenseToAdd = new ExpenseDTO();
+            expenseToAdd.Name = expenseName;
+            expenseToAdd.Cost = decimal.Parse(expenseCost);
+
+            return cmLogicService.insertExpense(expenseToAdd);
+        }
+
+        public bool AssignExpense(string jobId, string expenseId, string userId)
+        {
+            //Get matching expense
+            var allExpenses = cmLogicService.getExpenses().ToList();
+            var matchingExpense = allExpenses.Where(e => e.Id == int.Parse(expenseId)).First();
+
+            //Get matching job
+            var allJobsForUser = cmLogicService.getJobsForUser(userId);
+            var matchingJob = allJobsForUser.Where(j => j.Id == int.Parse(jobId)).First();
+
+            //Send expense assignment to logic
+            bool result = cmLogicService.insertJobExpense(matchingJob, matchingExpense);
+
             return result;
         }
 
-        public bool assignExpense(jobDTO job, ExpenseDTO expenseToAssign)
+        public string GetExpenseIdByName(string expenseName)
         {
-            bool result = cmLogicService.insertJobExpense(job, expenseToAssign);
+            //Get matching expense
+            var allExpenses = cmLogicService.getExpenses().ToList();
+            var matchingExpense = allExpenses.Where(e => e.Name.ToLower() == expenseName.ToLower()).First();
 
-            return result;
+            //Return expense Id
+            return matchingExpense.Id.ToString();
         }
         #endregion
 

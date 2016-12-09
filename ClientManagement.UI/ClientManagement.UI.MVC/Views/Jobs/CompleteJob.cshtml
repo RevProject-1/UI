@@ -5,30 +5,69 @@
 
 <h2>@ViewBag.Title</h2>
 <hr />
-@using (Html.BeginForm("CompleteJob", "Jobs", FormMethod.Post))
-{
-    <div class="row">
-        <div class="col-sm-3">
-            <p>Billed Hours:<br />
-                @Html.TextBoxFor(m => m.Hours, Model.Hours, new { @class = "form-control" })</p>
 
-                @Model.JobId <br/>
+<div class="row">
+    <div class="col-sm-4">
+        @using (Html.BeginForm("CompleteJob", "Jobs", FormMethod.Post))
+        {
+            <p>
+                <h4 style="margin-bottom:0px;">Add Expenses</h4><br />
+                Expense Name: <br/>
+                @Html.TextBoxFor(m => m.ExpenseToAdd.ExpenseName, Model.ExpenseToAdd.ExpenseName, new { @class = "form-control" })
+                Expense Cost: <br/>
+                @Html.TextBoxFor(m => m.ExpenseToAdd.ExpenseCost, Model.ExpenseToAdd.ExpenseCost, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.JobId, Model.JobId, new { @class = "hidden" })
+            </p>
 
-               <p> @Html.TextBoxFor(m => m.JobId, Model.JobId, new { @class = "form-control" })</p>
+            <button type="submit" class="btn btn-default">Add Expense</button>
+        }
+        <br/><br />
 
-            <p><strong>Expense:</strong></p>
-            <p>Expense Name:<br />
-                @Html.TextBoxFor(m => m.Expenses[0].ExpenseName, Model.Expenses[0].ExpenseName, new { @class = "form-control" })</p>
-            <p>Expense Cost:<br />
-                @Html.TextBoxFor(m => m.Expenses[0].ExpenseCost, Model.Expenses[0].ExpenseCost, new { @class = "form-control" })</p>
-        </div>
-    </div>
+        @using (Html.BeginForm("CompleteJobSubmit", "Jobs", FormMethod.Post))
+        {
+            <p>
+                Billed Hours: <br />
+                @Html.TextBoxFor(m => m.Hours, Model.Hours, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.JobId, Model.JobId, new { @class = "hidden" })
+            </p>
 
-    <div class="row">
-        <div class="col-sm-12">
             <button type="submit" class="btn btn-default">Submit</button>
-         </div>
+        }
+
+        <br /><br />
     </div>
-}
 
 
+    <div class="col-sm-4">
+        <h4>Job Expenses</h4>
+        @if (Model.AllExpensesForJob.Count() > 0)
+        {
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @for (int i = 0; i < Model.AllExpensesForJob.Count(); i++)
+                    {
+                        <tr>
+                            <td>@Model.AllExpensesForJob[i].ExpenseName</td>
+                            <td>$@Model.AllExpensesForJob[i].ExpenseCost</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+        else
+        {
+            <p>You currently do not have any expenses for this job.</p>
+        }
+    </div>
+
+    <div class="col-sm-4">
+    </div>
+</div>

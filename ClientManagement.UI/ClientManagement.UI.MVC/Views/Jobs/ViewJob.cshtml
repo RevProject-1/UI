@@ -4,26 +4,9 @@
 }
 
 <h2>Job Details</h2>
-@if (Model.CompleteRequestSent)
-{
-    if (Model.Completed == "Complete")
-    {
-        <p class="alert alert-success">"Sucessfully Completed Job"</p>
-    }
-
-    else if (Model.Completed == "Incompelte")
-    {
-        @: <p class="alert alert-danger">Failed To Complete Job</p>
-    }
-
-    else
-    {
-        @: <p class="alert alert-warning">Unable to process your request.</p>
-    }
-}
 
 <div class="row">
-    <div class="col-sm-9">
+    <div class="col-sm-6">
         @if (Model.Completed == "Incomplete")
         {
             <hr />
@@ -51,27 +34,31 @@
 
         else
         {
+            <div class="small-gap"></div>
             <div class="container">
                 <div class="panel panel-default">
-                    
-                    <h3>Invoice</h3>
+                    <div class="panel-heading h3">Invoice</div>
                     <div class="panel-body">
                         <p class="text-center">
                             <strong>@Model.JobInvoice.BusinessName</strong><br />
                             <strong>@Model.JobInvoice.BusinessPhoneNumber</strong><br />
-                            <br /><br />
+                        <p>
+                        <br/>
 
+                        <p class="text-center">
                             <strong>Client Serviced:</strong><br />
                             @Model.JobInvoice.ClientName<br />
                             @Model.JobInvoice.ClientStreet<br />
                             @Model.JobInvoice.ClientCity, @Model.JobInvoice.ClientState @Model.JobInvoice.ZipCode<br />
+                            <br />
                             
                             <strong>Service Provided: </strong>
                             @Model.JobInvoice.ServiceType<br />
                             <br />
 
                             <strong>Notes:</strong><br />
-                            @Model.Notes<br />
+                            @Model.JobInvoice.Notes<br />
+                            <br />
 
                             <strong>Start Date: </strong>
                             @Model.JobInvoice.StartDate<br />
@@ -83,6 +70,8 @@
 
                             <strong>Billed Hours: </strong>
                             @Model.JobInvoice.BilledHours<br />
+                            <strong>Hourly Rate: </strong>
+                            $@Model.JobInvoice.HourlyRate<br />
                             <br />
 
                             <strong>Labor Cost: </strong>
@@ -90,9 +79,10 @@
                             <br />
 
                             <strong>Expenses:</strong><br/>
-                            @for( int i = 0; i < Model.JobInvoice.expenses.Count(); i++)
+                            @for (int i = 0; i < Model.JobInvoice.expenses.Count(); i++)
                             {
-                                @:Model.JobInvoice.expenses[i].Name: Model.JobInvoice.expenses[i].Cost <br/>
+                                @: @Model.JobInvoice.expenses[i].Name: $@Model.JobInvoice.expenses[i].Cost 
+                                @:<br/>
                             }
                             <br/>
                             
@@ -101,37 +91,55 @@
                             <br />
 
                             <strong>Total: </strong>
-                            @Model.JobInvoice.Total<br />
+                            $@Model.JobInvoice.Total<br />
                             <br />
                         </p>
                     </div>
-
                 </div>
             </div>
         }
     </div>
 
-
     <div class="col-sm-3">
-
-        <div class="container">
-            <div class="panel panel-default">
-                <div class="panel-heading h3">Options</div>
-                <div class="panel-body">
-                    <h4>Manage Job</h4>
-                    <hr />
-                    <a class="btn btn-default" href="/client-manager/Jobs/CompleteJob?jobId=@Model.JobId">Complete Job</a><br />
-                    <br />
-                    <a class="btn btn-default" href="/client-manager/#">Update Job</a><br />
-                    <br />
-                    <a class="btn btn-default" href="/client-manager/#">Remove Job</a><br />
-                    <br />
-                </div>
-            </div>
-        </div>
-
     </div>
 
+    <div class="col-sm-3">
+        @if (Model.Completed == "Incomplete")
+        {
+                <div class="container">
+                    <div class="panel panel-default">
+                        <div class="panel-heading h3">Options</div>
+                        <div class="panel-body">
+                            <h4>Manage Job</h4>
+                            <hr />
+                            <a class="btn btn-default" href="/client-manager/Jobs/CompleteJob?jobId=@Model.JobId">Complete Job</a><br />
+                            <br />
+                            <a class="btn btn-default" href="/client-manager/#">Update Job</a><br />
+                            <br />
+                            <a class="btn btn-default" href="/client-manager/#">Remove Job</a><br />
+                            <br />
+                        </div>
+                    </div>
+                </div>
+        }
+
+        else
+        {
+            <div class="container">
+                <div class="panel panel-default">
+                    <div class="panel-heading h3">Options</div>
+                    <div class="panel-body">
+                        <h4>Manage Job</h4>
+                        <hr />
+                        <a class="btn btn-default" href="/client-manager/#">Update Job</a><br />
+                        <br />
+                        <a class="btn btn-default" href="/client-manager/#">Remove Job</a><br />
+                        <br />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 
     <br />
 </div>

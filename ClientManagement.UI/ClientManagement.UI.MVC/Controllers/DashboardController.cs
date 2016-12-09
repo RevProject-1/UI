@@ -47,7 +47,18 @@ namespace ClientManagement.UI.MVC.Controllers
 
             //Get jobs for user for dashboard view model
             model.ClientsForUser.ClientsToDisplay = cmLogic.GetClientsForUser(UserId);
-            model.JobsForUser.JobsToDisplay = cmLogic.GetJobsForUser(UserId);
+            var jobsForUser = cmLogic.GetJobsForUser(UserId);
+
+            //Remove any completed jobs
+            var incompleteJobs = jobsForUser.Where(j => j.Complete == false).ToList();
+
+            //Remove any jobs with a start date greater than 30 days from now
+            var upcomingJobs = incompleteJobs.Where(j => ((j.StartDate >= DateTime.Now) && (j.StartDate < DateTime.Now.AddDays(30)))).ToList();
+
+            //Sort jobs by start date
+            List<jobDTO> sortedJobsForUser = new List<jobDTO>();
+            sortedJobsForUser = upcomingJobs.OrderBy(j => j.StartDate).ToList();
+            model.JobsForUser.JobsToDisplay = sortedJobsForUser;
             model.statusCode = statusCode;
             model.message = message;
 

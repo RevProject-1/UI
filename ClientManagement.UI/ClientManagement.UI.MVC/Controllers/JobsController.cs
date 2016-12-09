@@ -25,36 +25,79 @@ namespace ClientManagement.UI.MVC.Controllers
             var model = new JobViewModel();
             LogicService cmLogic = new LogicService();
 
-            //Acquire job from logic
-            var jobsForUser = cmLogic.GetJobsForUser(UserId);
-            var matchingJob= jobsForUser.Where(j => j.Id == jobId);
+            //Check if job is completed
+            bool jobCompleted = cmLogic.JobCompletionStatus(jobId.ToString(), UserId);
 
-            if (matchingJob.Count() > 0)
+            if (!jobCompleted)
             {
-                var job = matchingJob.First();
+                //Acquire job from logic
+                var jobsForUser = cmLogic.GetJobsForUser(UserId);
+                var matchingJob = jobsForUser.Where(j => j.Id == jobId);
 
-                model.ServiceType = job.type.Name;
-                model.ClientName = job.client.Name;
-                model.Duration = job.EstimatedDuration.ToString();
-                model.Notes = job.Notes;
-                model.Completed = job.Complete ? "Complete" : "Incomplete";
-                model.StartDate = job.StartDate;
-                model.JobId = job.Id.ToString();
+                if (matchingJob.Count() > 0)
+                {
+                    var job = matchingJob.First();
 
-                return View(model);
+                    model.ServiceType = job.type.Name;
+                    model.ClientName = job.client.Name;
+                    model.Duration = job.EstimatedDuration.ToString();
+                    model.Notes = job.Notes;
+                    model.Completed = job.Complete ? "Complete" : "Incomplete";
+                    model.StartDate = job.StartDate;
+                    model.JobId = job.Id.ToString();
+
+                    return View(model);
+                }
+
+                else
+                {
+                    return RedirectToAction("Result", "Dashboard", new { statusCode = 1, message = "Unable To Access Job Information" });
+                }
             }
 
             else
             {
-                return RedirectToAction("Result", "Dashboard", new { statusCode = 1, message = "Unable To Access Job Information" });
+                //Generate invoice for job
+                Invoice jobInvoice = cmLogic.GetJobInvoice(jobId.ToString(), UserId);
+
+                if(jobInvoice != null)
+                {
+                    //Display invoice for job
+                    model.JobInvoice = jobInvoice;
+
+                    return View(model);
+                }
+
+                else
+                {
+                    return RedirectToAction("Result", "Dashboard", new { statusCode = 1, message = "Unable To Access Job Information" });
+                }
             }
+
         }
 
         [HttpGet]
         public ActionResult CompleteJob(string jobId)
         {
             var model = new CompleteJobViewModel();
+            LogicService cmLogic = new LogicService();
 
+            //Generate list of expenses to display
+            var matchingExpenseAssignments = cmLogic.GetAllExpenseAssignmentsForJob(jobId);
+            List<ExpenseViewModel> expensesToDisplay = new List<ExpenseViewModel>();
+
+            foreach(JobExpenseDTO ea in matchingExpenseAssignments)
+            {
+                ExpenseViewModel expense = new ExpenseViewModel();
+                expense.ExpenseName = ea.Expense.Name;
+                expense.ExpenseCost = ea.Expense.Cost.ToString();
+
+                expensesToDisplay.Add(expense);
+            }
+
+            model.AllExpensesForJob = expensesToDisplay;
+
+            //Pass in job id from URL
             model.JobId = jobId;
 
             return View(model);
@@ -66,70 +109,68 @@ namespace ClientManagement.UI.MVC.Controllers
             string userId = User.Identity.GetUserId();
             LogicService cmLogic = new LogicService();
 
-            //Send job to complete to logic layer
-            var allJobsForUser = cmLogic.GetJobsForUser(userId);
-            var jobToComplete = allJobsForUser.Where(j => j.Id == int.Parse(model.JobId)).First();
+            //Send expense to logic
+            bool expenseAdded = cmLogic.AddExpense(model.ExpenseToAdd.ExpenseName, model.ExpenseToAdd.ExpenseCost);
 
-                bool jobCompletedSuccessfully = cmLogic.CompleteJob(jobToComplete);
+            if (expenseAdded)
+            { 
+                //Add assign new expense to current job
+                string expenseId = cmLogic.GetExpenseIdByName(model.ExpenseToAdd.ExpenseName);
+                bool expenseAssigned = cmLogic.AssignExpense(model.JobId, expenseId, userId);
 
-                if (jobCompletedSuccessfully)
+                if (expenseAssigned)
                 {
-                    //Reload jobs for updating hours
-                    var allJobsForUserRefresh1 = cmLogic.GetJobsForUser(userId);
-                    var jobToUpdate = allJobsForUserRefresh1.Where(j => j.Id == int.Parse(model.JobId)).First();
+                    return RedirectToAction("CompleteJob", "Jobs", new { jobId = model.JobId });
+                }
 
-                    //Update job hours
-                    jobToUpdate.Hours = decimal.Parse(model.Hours);
-                    bool jobUpdated = cmLogic.UpdateJob(jobToUpdate);
+                else
+                {
+                    return RedirectToAction("Result", "Dashboard", new { statusCode = 1, message = "Failed To Assign Expense" });
+                }
+            }
 
-                    if (jobUpdated)
-                    {
-                        //Add expense
-                        ExpenseDTO newExpense = new ExpenseDTO();
-                        newExpense.Name = model.Expenses[0].ExpenseName;
-                        newExpense.Cost = decimal.Parse(model.Expenses[0].ExpenseCost);
-                        bool expenseAdded = cmLogic.addExpense(newExpense);
+            else
+            {
+                return RedirectToAction("Result", "Dashboard", new { statusCode = 1, message = "Failed To Add Expense" });
+            }  
 
-                        if (expenseAdded)
-                        {
-                            //Reload expenses and jobs, save expense assignment
-                            var allJobsForUserRefresh2 = cmLogic.GetJobsForUser(userId);
-                            var jobToAssign = allJobsForUserRefresh2.Where(j => j.Id == int.Parse(model.JobId)).First();
+        }
 
-                            var allExpenses = cmLogic.GetAllExpenses();
-                            var expenseToAssign = allExpenses.Where(ex => ex.Name == newExpense.Name).First();
+        [HttpGet]
+        public ActionResult CompleteJobSubmit()
+        {
+            return RedirectToAction("Index", "Dashboard");
+        }
 
-                            bool expenseAssigned = cmLogic.assignExpense(jobToAssign, expenseToAssign);
+        [HttpPost]
+        public ActionResult CompleteJobSubmit(CompleteJobViewModel model)
+        {
+            string userId = User.Identity.GetUserId();
+            LogicService cmLogic = new LogicService();
 
-                            if (expenseAssigned)
-                            {
-                                return View(model);
-                            }
+            bool jobUpdated = cmLogic.UpdateJobForUser(model.JobId, userId, model.Hours);
 
-                            else
-                            {
-                                return RedirectToAction("Result", "Dashboard", new { statusCode = 1, message = "Failed To Assign Expense" });
-                            }
-                        }
+            if (jobUpdated)
+            {
+                bool jobCompleted = cmLogic.CompleteJobForUser(model.JobId, userId);
 
-                        else
-                        {
-                            return RedirectToAction("Result", "Dashboard", new { statusCode = 1, message = "Failed To Add Expense" });
-                        }
-                    }
-               
-                    else
-                    {
-                        return RedirectToAction("Result", "Dashboard", new { statusCode = 1, message = "Failed To Update Job" });
-                    }
+                if (jobCompleted)
+                {
+                    return RedirectToAction("ViewJob", "Jobs", new { jobId = model.JobId });
                 }
 
                 else
                 {
                     return RedirectToAction("Result", "Dashboard", new { statusCode = 1, message = "Failed To Complete Job" });
                 }
-
             }
+
+            else
+            {
+                return RedirectToAction("Result", "Dashboard", new { statusCode = 1, message = "Failed To Update Job" });
+            }
+            
+        }
 
         public ActionResult AddServiceType()
         {
