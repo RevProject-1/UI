@@ -4,32 +4,113 @@
 }
 
 <h2>Job Details</h2>
+@if (Model.CompleteRequestSent)
+{
+    if (Model.Completed == "Complete")
+    {
+        <p class="alert alert-success">"Sucessfully Completed Job"</p>
+    }
+
+    else if (Model.Completed == "Incompelte")
+    {
+        @: <p class="alert alert-danger">Failed To Complete Job</p>
+    }
+
+    else
+    {
+        @: <p class="alert alert-warning">Unable to process your request.</p>
+    }
+}
 
 <div class="row">
     <div class="col-sm-9">
-        <hr />
-        <h4 style="margin-top:0px;">@Model.ServiceType Service for @Model.ClientName</h4>
-        <hr />
+        @if (Model.Completed == "Incomplete")
+        {
+            <hr />
+            <h4 style="margin-top:0px;">@Model.ServiceType Service for @Model.ClientName</h4>
+            <hr />
 
-        <p>
-            <strong>Start Date:</strong>
-            @Model.StartDate<br />
-            <br />
+             <p>
+                <strong>Start Date:</strong>
+                @Model.StartDate<br />
+                <br />
             
-            <strong>Duration:</strong>
-            @Model.Duration Days<br />
-            <br />
+                <strong>Duration:</strong>
+                @Model.Duration Days<br />
+                <br />
             
-            <strong>Status:</strong> 
-            @Model.Completed<br />
-            <br />
+                <strong>Status:</strong> 
+                @Model.Completed<br />
+                <br />
             
-            <strong>Notes:</strong><br/>
-            @Model.Notes<br />
-        </p>
+                <strong>Notes:</strong><br/>
+                @Model.Notes<br />
+             </p>
+             <br/>
+        }
 
-        <div class="gap"></div>
+        else
+        {
+            <div class="container">
+                <div class="panel panel-default">
+                    
+                    <h3>Invoice</h3>
+                    <div class="panel-body">
+                        <p class="text-center">
+                            <strong>@Model.JobInvoice.BusinessName</strong><br />
+                            <strong>@Model.JobInvoice.BusinessPhoneNumber</strong><br />
+                            <br /><br />
+
+                            <strong>Client Serviced:</strong><br />
+                            @Model.JobInvoice.ClientName<br />
+                            @Model.JobInvoice.ClientStreet<br />
+                            @Model.JobInvoice.ClientCity, @Model.JobInvoice.ClientState @Model.JobInvoice.ZipCode<br />
+                            
+                            <strong>Service Provided: </strong>
+                            @Model.JobInvoice.ServiceType<br />
+                            <br />
+
+                            <strong>Notes:</strong><br />
+                            @Model.Notes<br />
+
+                            <strong>Start Date: </strong>
+                            @Model.JobInvoice.StartDate<br />
+                            <br />
+
+                            <strong>End Date: </strong>
+                            @Model.JobInvoice.EndDate<br />
+                            <br />
+
+                            <strong>Billed Hours: </strong>
+                            @Model.JobInvoice.BilledHours<br />
+                            <br />
+
+                            <strong>Labor Cost: </strong>
+                            @Model.JobInvoice.subTotalString<br />
+                            <br />
+
+                            <strong>Expenses:</strong><br/>
+                            @for( int i = 0; i < Model.JobInvoice.expenses.Count(); i++)
+                            {
+                                @:Model.JobInvoice.expenses[i].Name: Model.JobInvoice.expenses[i].Cost <br/>
+                            }
+                            <br/>
+                            
+                            <strong>Expenses Subtotal: </strong>
+                            @Model.JobInvoice.totalExpensesString<br />
+                            <br />
+
+                            <strong>Total: </strong>
+                            @Model.JobInvoice.Total<br />
+                            <br />
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        }
     </div>
+
 
     <div class="col-sm-3">
 
@@ -39,7 +120,7 @@
                 <div class="panel-body">
                     <h4>Manage Job</h4>
                     <hr />
-                    <a class="btn btn-default" href="/client-manager/#">Complete Job</a><br />
+                    <a class="btn btn-default" href="/client-manager/Jobs/CompleteJob?jobId=@Model.JobId">Complete Job</a><br />
                     <br />
                     <a class="btn btn-default" href="/client-manager/#">Update Job</a><br />
                     <br />
@@ -50,6 +131,7 @@
         </div>
 
     </div>
+
 
     <br />
 </div>

@@ -94,6 +94,24 @@ namespace ClientManagement.UI.ServiceAccess
             return jobs;
         }
 
+        public bool CompleteJob(jobDTO jobToComplete)
+        {
+            bool result = cmLogicService.completeJob(jobToComplete);
+            return result;
+        }
+
+        public Invoice CreateInvoiceForJob(jobDTO jobRequestingInvoice)
+        {
+            Invoice jobInvoice = cmLogicService.generateInvoice(jobRequestingInvoice);
+            return jobInvoice;
+        }
+
+        public bool UpdateJob(jobDTO jobToUpdate)
+        {
+            bool result = cmLogicService.updateJob(jobToUpdate);
+            return result;
+        }
+
         public bool ScheduleJob(DateTime startDate, int estDuration, string notes, string userId, string clientName, string serviceTypeName)
         {
             //Define data memebers that need to be assigned for InsertJob in the logic layer
@@ -120,6 +138,27 @@ namespace ClientManagement.UI.ServiceAccess
         }
 
         #endregion
- 
+
+        #region Expense Related
+        public List<ExpenseDTO> GetAllExpenses()
+        {
+            List<ExpenseDTO> expenses = cmLogicService.getExpenses().ToList();
+            return expenses;
+        }
+
+        public bool addExpense(ExpenseDTO expenseToAdd)
+        {
+            bool result = cmLogicService.insertExpense(expenseToAdd);
+            return result;
+        }
+
+        public bool assignExpense(jobDTO job, ExpenseDTO expenseToAssign)
+        {
+            bool result = cmLogicService.insertJobExpense(job, expenseToAssign);
+
+            return result;
+        }
+        #endregion
+
     }
 }

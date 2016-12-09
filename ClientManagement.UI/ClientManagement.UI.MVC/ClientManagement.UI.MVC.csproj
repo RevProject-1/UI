@@ -195,9 +195,11 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ClientViewModel.cs" />
     <Compile Include="Models\AddClientViewModel.cs" />
+    <Compile Include="Models\CompleteJobViewModel.cs" />
     <Compile Include="Models\DashboardViewModel.cs" />
     <Compile Include="Models\DisplayClientsViewModel.cs" />
     <Compile Include="Models\DisplayJobsViewModel.cs" />
+    <Compile Include="Models\ExpenseViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\AddJobViewModel.cs" />
     <Compile Include="Models\JobViewModel.cs" />
@@ -299,6 +301,7 @@
     <Content Include="Views\Dashboard\SearchClient.cshtml" />
     <None Include="Service References\cmLogicService\Service1.wsdl" />
     <Content Include="Views\Jobs\ViewJob.cshtml" />
+    <Content Include="Views\Jobs\CompleteJob.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

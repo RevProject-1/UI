@@ -843,6 +843,9 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
         private bool CompleteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> EndDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> EstimatedDurationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -904,6 +907,19 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
                 if ((this.CompleteField.Equals(value) != true)) {
                     this.CompleteField = value;
                     this.RaisePropertyChanged("Complete");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> EndDate {
+            get {
+                return this.EndDateField;
+            }
+            set {
+                if ((this.EndDateField.Equals(value) != true)) {
+                    this.EndDateField = value;
+                    this.RaisePropertyChanged("EndDate");
                 }
             }
         }
@@ -1095,6 +1111,9 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string StartDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> TotalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ZipCodeField;
@@ -1289,6 +1308,19 @@ namespace ClientManagement.UI.ServiceAccess.cmLogicService {
                 if ((object.ReferenceEquals(this.StartDateField, value) != true)) {
                     this.StartDateField = value;
                     this.RaisePropertyChanged("StartDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> Total {
+            get {
+                return this.TotalField;
+            }
+            set {
+                if ((this.TotalField.Equals(value) != true)) {
+                    this.TotalField = value;
+                    this.RaisePropertyChanged("Total");
                 }
             }
         }

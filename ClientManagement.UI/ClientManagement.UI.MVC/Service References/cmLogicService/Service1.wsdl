@@ -829,6 +829,7 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="ClientId" type="xs:int" />
           <xs:element minOccurs="0" name="Complete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="EstimatedDuration" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="Hours" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="Id" type="xs:int" />
@@ -869,6 +870,7 @@
           <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ServiceType" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Total" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="expenses" nillable="true" type="tns:ArrayOfInvoiceExpenses" />
           <xs:element minOccurs="0" name="subTotal" nillable="true" type="xs:decimal" />
